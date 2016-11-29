@@ -1,0 +1,8 @@
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Release\ClinicaFrba.exe.config
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Release\ClinicaFrba.exe
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Release\ClinicaFrba.pdb
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Release\ClinicaFrba.Login.resources
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Release\ClinicaFrba.Properties.Resources.resources
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Release\ClinicaFrba.csproj.GenerateResource.Cache
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Release\ClinicaFrba.exe
+C:\Users\pc2\Google Drive\Facultad\2016\GdD\TP\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Release\ClinicaFrba.pdb
