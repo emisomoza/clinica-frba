@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Archivos de compilación y debbuging
+ClinicaFrba/bin/Debug/*
+ClinicaFrba/obj/Debug/*
+ClinicaFrba/ClinicaFrba.csproj
