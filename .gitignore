@@ -47,10 +47,11 @@ Temporary Items
 .apdisk
 
 # Archivos de compilación y debbuging
-ClinicaFrba/bin/Debug/*
-ClinicaFrba/obj/Debug/*
+ClinicaFrba/bin/*
+ClinicaFrba/obj/*
 ClinicaFrba/ClinicaFrba.csproj
 ClinicaFrba.v11.suo
-**/Debug/**
+
+# Debug
 .csproj
 .suo

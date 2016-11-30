@@ -39,7 +39,16 @@ D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.ex
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
+D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
-D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
-D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Menu.cl_Menu.resources
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+C:\Users\Emiso\Desktop\Aplicacion Desktop\ClinicaFrba\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
