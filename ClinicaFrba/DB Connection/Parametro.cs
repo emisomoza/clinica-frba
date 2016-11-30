@@ -9,12 +9,11 @@ namespace ClinicaFrba.DB_Connection
     class Parametro
     {
         public String nombre {get; set;}
-        public String valor{get; set;}
-
-        public Parametro (String nombre, String valor)
-        {
+        public Object valor { get; set; }
+        
+        public Parametro (String nombre, Object valor) {
             this.nombre = nombre;
-            this.valor = valor;
+            this.valor= valor;
         }
     }
 }
