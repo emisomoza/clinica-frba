@@ -51,9 +51,7 @@ ClinicaFrba/bin/*
 ClinicaFrba/obj/*
 ClinicaFrba/ClinicaFrba.csproj
 ClinicaFrba.v11.suo
-<<<<<<< HEAD
-=======
-**/Debug/**
+
+# Debug
 .csproj
 .suo
->>>>>>> cd0a463600de81e3e06b40d16081e2934e7cc04c
