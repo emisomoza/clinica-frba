@@ -36,7 +36,7 @@
             this.chkFuncionalidades = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.comboEstado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreRol = new System.Windows.Forms.TextBox();
@@ -83,7 +83,7 @@
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // groupBox1
             // 
@@ -91,7 +91,7 @@
             this.groupBox1.Controls.Add(this.chkFuncionalidades);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cmbEstado);
+            this.groupBox1.Controls.Add(this.comboEstado);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNombreRol);
@@ -112,7 +112,7 @@
             this.lblLimpiarCampos.TabIndex = 228;
             this.lblLimpiarCampos.TabStop = true;
             this.lblLimpiarCampos.Text = "Limpiar Campos";
-            this.lblLimpiarCampos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLimpiarCampos_LinkClicked);
+            this.lblLimpiarCampos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.limpiarCampos_LinkClicked);
             // 
             // chkFuncionalidades
             // 
@@ -120,7 +120,7 @@
             this.chkFuncionalidades.Name = "chkFuncionalidades";
             this.chkFuncionalidades.ScrollAlwaysVisible = true;
             this.chkFuncionalidades.Size = new System.Drawing.Size(235, 244);
-            this.chkFuncionalidades.TabIndex = 10;
+            this.chkFuncionalidades.TabIndex = 100;
             // 
             // label3
             // 
@@ -139,14 +139,14 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Estado";
             // 
-            // cmbEstado
+            // comboEstado
             // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(31, 346);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(235, 21);
-            this.cmbEstado.TabIndex = 7;
+            this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboEstado.FormattingEnabled = true;
+            this.comboEstado.Location = new System.Drawing.Point(31, 346);
+            this.comboEstado.Name = "comboEstado";
+            this.comboEstado.Size = new System.Drawing.Size(235, 21);
+            this.comboEstado.TabIndex = 7;
             // 
             // label2
             // 
@@ -242,7 +242,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.ComboBox comboEstado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreRol;
