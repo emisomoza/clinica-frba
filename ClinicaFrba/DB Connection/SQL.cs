@@ -70,6 +70,47 @@ namespace ClinicaFrba.DB_Connection
             return table;
         }
 
+        public DataTable ejecutarSP(string procedure)
+        {
+            SqlCommand command = new SqlCommand();
+            SqlDataAdapter adapter;
+            DataTable table = new DataTable();
+            try
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Connection = abrirConexion();
+                command.CommandText = "[" + Settings.Default.SQL_Schema + "].[" + procedure + "]";
+              
+                adapter = new SqlDataAdapter(command);
+                adapter.Fill(table);
+                cerrarConexion(command.Connection);
+                command.Dispose();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return table;
+        }
 
+        public DataTable ejecutarConsulta(string query)
+        {
+            if (query.Length == 0)
+            {
+                throw (new Exception());
+            }
+
+            try
+            {
+                DataTable dato = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, abrirConexion());
+                dataAdapter.Fill(dato);
+                return dato;
+            }
+            catch (SqlException exsql)
+            {
+                throw exsql;
+            }
+        }
     }
 }

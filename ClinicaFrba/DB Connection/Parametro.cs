@@ -8,6 +8,9 @@ namespace ClinicaFrba.DB_Connection
 {
     class Parametro
     {
+        private string p;
+        private int idRol;
+
         public String nombre {get; set;}
         public String valor{get; set;}
 
@@ -15,6 +18,13 @@ namespace ClinicaFrba.DB_Connection
         {
             this.nombre = nombre;
             this.valor = valor;
+        }
+
+        public Parametro(string p, int idRol)
+        {
+            // TODO: Complete member initialization
+            this.p = p;
+            this.idRol = idRol;
         }
     }
 }
