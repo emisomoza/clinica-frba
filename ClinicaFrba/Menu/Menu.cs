@@ -1,53 +1,48 @@
-﻿using MercadoEnvio.ABM_Rol;
-using MercadoEnvio.ABM_Rubro;
-using MercadoEnvio.ABM_Usuario;
-using MercadoEnvio.ABM_Visibilidad;
-using MercadoEnvio.Calificar;
-using MercadoEnvio.Clases;
-using MercadoEnvio.Comprar_Ofertar;
-using MercadoEnvio.Facturas;
-using MercadoEnvio.Generar_Publicacion;
-using MercadoEnvio.Historial_Cliente;
-using MercadoEnvio.Listado_Estadistico;
-using MercadoEnvio.Ver_Preguntas;
-using MercadoEnvio.Properties;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace MercadoEnvio.Menu
+namespace ClinicaFrba.Menu
 {
     public partial class cl_Menu : Form
     {
         private int usuario_id { get; set; }
         private string usuario_rol { get; set; }
-        public cl_Menu(int usuario_id)
+        public cl_Menu(int usuario_id, String usuario_rol)
         {
             InitializeComponent();
             this.usuario_id = usuario_id;
+            this.usuario_rol = usuario_rol;
+
+            this.titulo_usuario.Text = "Usuario ID: " + usuario_id;
+            this.titulo_rol.Text = "Rol: " + usuario_rol;
+            /*
             ProcesarSubastas();
-            ProcesarPublicaciones();
+            ProcesarPublicaciones();*/
         }
 
         private void btn_abm_rol_Click(object sender, EventArgs e)
         {
-            cl_abm_rol rol = new cl_abm_rol();
-            rol.ShowDialog();
+           // cl_abm_rol rol = new cl_abm_rol();
+            //rol.ShowDialog();
         }
 
         private void btn_abm_usuario_Click(object sender, EventArgs e)
         {
-            cl_abm_usuario usuario = new cl_abm_usuario();
-            usuario.ShowDialog();
+            // cl_abm_usuario usuario = new cl_abm_usuario();
+            //usuario.ShowDialog();
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         public void m_rol(string rol)
         {
+
+            /*
             cl_SQL sql = new cl_SQL();
             cl_Parametros lista = new cl_Parametros();
             DataTable tabla;
@@ -64,9 +59,14 @@ namespace MercadoEnvio.Menu
                         subchild.Visible = tabla.Rows[i][1].Equals(true);
                     }
                 }
-            }
+            } */
         }
 
+        private void cl_Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+        /*
         private void btn_abm_rubro_Click(object sender, EventArgs e)
         {
             cl_abm_rubro rubro = new cl_abm_rubro();
@@ -148,6 +148,6 @@ namespace MercadoEnvio.Menu
             cl_Listado_preguntas preguntas = new cl_Listado_preguntas(this.usuario_id);
             preguntas.ShowDialog();
         }
-
+        */
     }
 }

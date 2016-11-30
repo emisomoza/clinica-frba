@@ -39,7 +39,7 @@ D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.ex
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
-D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
-D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
+D:\Documents\Facultad\2016\GdD\clinica-frba\ClinicaFrba\obj\Debug\ClinicaFrba.Menu.cl_Menu.resources
