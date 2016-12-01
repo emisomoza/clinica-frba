@@ -60,7 +60,7 @@ namespace ClinicaFrba.AbmRol
                 this.rol_id = Convert.ToInt32(this.dgvRoles.SelectedRows[0].Cells[0].Value);
                 this.txtNombreRol.Text = this.dgvRoles.SelectedRows[0].Cells[1].Value.ToString();
                 this.comboEstado.SelectedIndex = Convert.ToInt32(this.dgvRoles.SelectedRows[0].Cells[2].Value);
-                //this.f_completar_funcionalidades();
+                this.f_completar_funcionalidades();
             }
         }
 
@@ -76,7 +76,7 @@ namespace ClinicaFrba.AbmRol
                 this.rol_id = Convert.ToInt32(this.dgvRoles.Rows[e.RowIndex].Cells[0].Value);
                 this.txtNombreRol.Text = dgvRoles.Rows[e.RowIndex].Cells[1].Value.ToString();
                 this.comboEstado.SelectedIndex = Convert.ToInt32(dgvRoles.Rows[e.RowIndex].Cells[2].Value);
-                //this.f_completar_funcionalidades();
+                this.f_completar_funcionalidades();
             }
         }
 
@@ -120,8 +120,8 @@ namespace ClinicaFrba.AbmRol
             SQL sql = new SQL();
             List<Parametro> parametros = new List<Parametro>();
 
-            Parametro id_rol = new Parametro("id_rol", idRol);
-            parametros.Add(id_rol);
+            Parametro rol_id = new Parametro("rol_id", idRol.ToString());
+            parametros.Add(rol_id);
 
             DataTable tabla = sql.ejecutarSP("usp_funcionalidades_x_rol", parametros);
             if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
@@ -130,12 +130,21 @@ namespace ClinicaFrba.AbmRol
                 return;
             }
 
-            Int32 cantidad = funcionalidades.Items.Count;
-            Int32 cantidad2 = tabla.Rows.Count;
-            for (int i = 0; i < cantidad && i < cantidad2; i++)
+            Int32 cantidadFuncionalidades = funcionalidades.Items.Count;
+
+            for (int i = 0; i < cantidadFuncionalidades; i++)
             {
-                Boolean habilitado = Convert.ToBoolean(tabla.Rows[i].ItemArray[1].ToString());
-                funcionalidades.SetItemChecked(i, habilitado);
+                //Deshabilito todas las funcionalidades
+                funcionalidades.SetItemChecked(i, false);
+            }
+
+            Int32 cantidadFuncionalidadesRol = tabla.Rows.Count;
+            String elem;
+            for (int i = 0; i < cantidadFuncionalidadesRol; i++)
+            {
+                elem = tabla.Rows[i].ItemArray[1].ToString();
+                int index = funcionalidades.FindString(elem);
+                funcionalidades.SetItemChecked(index, true);
             }
         }
 
