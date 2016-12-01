@@ -11,6 +11,9 @@
     <Setting Name="Command_Timeout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">9000</Value>
     </Setting>
+    <Setting Name="Database" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Database=GD2C2016;</Value>
+    </Setting>
     <Setting Name="Data_Source" Type="System.String" Scope="User">
       <Value Profile="(Default)">Data Source=localhost</Value>
     </Setting>
@@ -28,9 +31,6 @@
     </Setting>
     <Setting Name="User" Type="System.String" Scope="User">
       <Value Profile="(Default)">User=gd;</Value>
-    </Setting>
-    <Setting Name="Database" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Database=GD1C2016;</Value>
     </Setting>
   </Settings>
 </SettingsFile>
