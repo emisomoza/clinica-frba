@@ -158,7 +158,7 @@ namespace ClinicaFrba.AbmRol
 
             parametros.Add(nombre_rol);
             parametros.Add(habilitado);
-            DataTable tabla = sql.ejecutarSP("sp_crear_rol", parametros);
+            DataTable tabla = sql.ejecutarSP("usp_alta_rol", parametros);
 
             if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
@@ -170,16 +170,15 @@ namespace ClinicaFrba.AbmRol
             }
             else
             {
-                bool hab;
                 bool error = false;
-                Int32 cantidad = funcionalidades.Items.Count;
-                for (int i = 0; i < cantidad; i++)
+                Int32 cantidadFuncionalidadesChequeadas = funcionalidades.CheckedItems.Count;
+                DataRowView fila;
+                String nombreFuncionalidad;
+                for (int i = 0; i < cantidadFuncionalidadesChequeadas; i++)
                 {
-                    DataRowView fila = (DataRowView)funcionalidades.Items[i];
-                    hab = funcionalidades.GetItemChecked(i);
-                    error = modificarFunc(nombreRol,
-                                  fila.Row[0].ToString(),
-                                  Convert.ToInt32(hab));
+                    fila = (DataRowView)funcionalidades.CheckedItems[i];
+                    nombreFuncionalidad = fila.Row[1].ToString();
+                    error = modificarFunc(nombreRol, nombreFuncionalidad, 1);
                     if (error == true)
                         break;
                 }
@@ -200,32 +199,42 @@ namespace ClinicaFrba.AbmRol
             List<Parametro> parametros = new List<Parametro>();
 
             Parametro nombre_rol = new Parametro("nombre_rol", nombreRol);
-            Parametro nombre_func = new Parametro("nombre_func", funcionalidad.ToString());
-            Parametro habilitado = new Parametro("habilitado", hab.ToString());
+            Parametro nombre_funcionalidad = new Parametro("nombre_funcionalidad", funcionalidad.ToString());
 
             parametros.Add(nombre_rol);
-            parametros.Add(nombre_func);
-            parametros.Add(habilitado);
+            parametros.Add(nombre_funcionalidad);
 
-            DataTable tabla = sql.ejecutarSP("fn_actualizar_rol", parametros);
+            DataTable tabla;
+
+            if (hab == 1)
+            {
+                tabla = sql.ejecutarSP("usp_asignar_funcionalidad_rol", parametros);
+            }
+            else
+            {
+                tabla = sql.ejecutarSP("usp_eliminar_funcionalidades_rol", parametros);
+            }
+
             if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
                 return true;
             }
             return false;
         }
-        public static void modificarRol(string nombreRol, Int32 estado, CheckedListBox funcionalidades)
+        public void modificarRol(string nombreRol, Int32 estado, CheckedListBox funcionalidades)
         {
             SQL sql = new SQL();
             List<Parametro> parametros = new List<Parametro>();
 
+            Parametro id_rol_param = new Parametro("id_rol", this.rol_id);
             Parametro nombre_rol = new Parametro("nombre_rol", nombreRol);
-            Parametro habilitado = new Parametro("habilitado", estado.ToString());
+            Parametro habilitado = new Parametro("habilitado", estado);
 
+            parametros.Add(id_rol_param);
             parametros.Add(nombre_rol);
             parametros.Add(habilitado);
 
-            DataTable tabla = sql.ejecutarSP("sp_update_rol", parametros);
+            DataTable tabla = sql.ejecutarSP("usp_modificar_rol", parametros);
             if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
                 MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
@@ -240,7 +249,7 @@ namespace ClinicaFrba.AbmRol
                     DataRowView fila = (DataRowView)funcionalidades.Items[i];
                     hab = funcionalidades.GetItemChecked(i);
                     error = modificarFunc(nombreRol,
-                                  fila.Row[0].ToString(),
+                                  fila.Row[1].ToString(),
                                   Convert.ToInt32(hab));
                     if (error == true)
                         break;
@@ -262,8 +271,9 @@ namespace ClinicaFrba.AbmRol
                 MessageBox.Show("Por favor complete Nombre");
                 return;
             }
-            int estado = Convert.ToInt32(this.comboEstado.SelectedIndex.ToString());
-            modificarRol(this.txtNombreRol.Text, estado, chkFuncionalidades);
+
+            int habilitado = Convert.ToInt32(this.comboEstado.SelectedIndex.ToString());
+            modificarRol(this.txtNombreRol.Text, habilitado, chkFuncionalidades);
         }
     }
 }
