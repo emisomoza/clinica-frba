@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-               private void InitializeComponent()
+        private void InitializeComponent()
         {
             this.groupAltaAfiliado = new System.Windows.Forms.GroupBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -42,14 +42,14 @@
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtDirección = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbTipoDni = new System.Windows.Forms.ComboBox();
+            this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.linkCleanCliente = new System.Windows.Forms.LinkLabel();
+            this.linkCleanAfiliado = new System.Windows.Forms.LinkLabel();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -75,20 +75,19 @@
             this.groupAltaAfiliado.Controls.Add(this.dtpFechaNacimiento);
             this.groupAltaAfiliado.Controls.Add(this.label3);
             this.groupAltaAfiliado.Controls.Add(this.txtTelefono);
-            this.groupAltaAfiliado.Controls.Add(this.txtDirección);
+            this.groupAltaAfiliado.Controls.Add(this.txtDireccion);
             this.groupAltaAfiliado.Controls.Add(this.label2);
-            this.groupAltaAfiliado.Controls.Add(this.cmbTipoDni);
+            this.groupAltaAfiliado.Controls.Add(this.cmbTipoDocumento);
             this.groupAltaAfiliado.Controls.Add(this.label1);
             this.groupAltaAfiliado.Controls.Add(this.label10);
             this.groupAltaAfiliado.Controls.Add(this.txtNombre);
             this.groupAltaAfiliado.Controls.Add(this.label11);
-            this.groupAltaAfiliado.Controls.Add(this.linkCleanCliente);
+            this.groupAltaAfiliado.Controls.Add(this.linkCleanAfiliado);
             this.groupAltaAfiliado.Controls.Add(this.txtApellido);
             this.groupAltaAfiliado.Controls.Add(this.txtNroDocumento);
             this.groupAltaAfiliado.Controls.Add(this.txtEmail);
             this.groupAltaAfiliado.Controls.Add(this.label12);
             this.groupAltaAfiliado.Controls.Add(this.label13);
-            this.groupAltaAfiliado.Enabled = false;
             this.groupAltaAfiliado.Location = new System.Drawing.Point(21, 12);
             this.groupAltaAfiliado.Name = "groupAltaAfiliado";
             this.groupAltaAfiliado.Size = new System.Drawing.Size(721, 379);
@@ -104,6 +103,7 @@
             this.btnGuardar.TabIndex = 30;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label8
             // 
@@ -171,7 +171,7 @@
             this.cmbEstadoCivil.FormattingEnabled = true;
             this.cmbEstadoCivil.Location = new System.Drawing.Point(151, 257);
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
-            this.cmbEstadoCivil.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstadoCivil.Size = new System.Drawing.Size(151, 21);
             this.cmbEstadoCivil.TabIndex = 22;
             // 
             // cmbSexo
@@ -206,12 +206,12 @@
             this.txtTelefono.Size = new System.Drawing.Size(220, 20);
             this.txtTelefono.TabIndex = 17;
             // 
-            // txtDirección
+            // txtDireccion
             // 
-            this.txtDirección.Location = new System.Drawing.Point(151, 126);
-            this.txtDirección.Name = "txtDirección";
-            this.txtDirección.Size = new System.Drawing.Size(220, 20);
-            this.txtDirección.TabIndex = 16;
+            this.txtDireccion.Location = new System.Drawing.Point(151, 126);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(220, 20);
+            this.txtDireccion.TabIndex = 16;
             // 
             // label2
             // 
@@ -220,15 +220,15 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Dirección";
+            this.label2.Text = "Direccion";
             // 
-            // cmbTipoDni
+            // cmbTipoDocumento
             // 
-            this.cmbTipoDni.FormattingEnabled = true;
-            this.cmbTipoDni.Location = new System.Drawing.Point(151, 73);
-            this.cmbTipoDni.Name = "cmbTipoDni";
-            this.cmbTipoDni.Size = new System.Drawing.Size(53, 21);
-            this.cmbTipoDni.TabIndex = 10;
+            this.cmbTipoDocumento.FormattingEnabled = true;
+            this.cmbTipoDocumento.Location = new System.Drawing.Point(151, 73);
+            this.cmbTipoDocumento.Name = "cmbTipoDocumento";
+            this.cmbTipoDocumento.Size = new System.Drawing.Size(151, 21);
+            this.cmbTipoDocumento.TabIndex = 10;
             // 
             // label1
             // 
@@ -265,15 +265,16 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Apellido";
             // 
-            // linkCleanCliente
+            // linkCleanAfiliado
             // 
-            this.linkCleanCliente.AutoSize = true;
-            this.linkCleanCliente.Location = new System.Drawing.Point(10, 355);
-            this.linkCleanCliente.Name = "linkCleanCliente";
-            this.linkCleanCliente.Size = new System.Drawing.Size(81, 13);
-            this.linkCleanCliente.TabIndex = 13;
-            this.linkCleanCliente.TabStop = true;
-            this.linkCleanCliente.Text = "Limpiar Campos";
+            this.linkCleanAfiliado.AutoSize = true;
+            this.linkCleanAfiliado.Location = new System.Drawing.Point(10, 355);
+            this.linkCleanAfiliado.Name = "linkCleanAfiliado";
+            this.linkCleanAfiliado.Size = new System.Drawing.Size(81, 13);
+            this.linkCleanAfiliado.TabIndex = 13;
+            this.linkCleanAfiliado.TabStop = true;
+            this.linkCleanAfiliado.Text = "Limpiar Campos";
+            this.linkCleanAfiliado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.limpiarCampos_LinkClicked);
             // 
             // txtApellido
             // 
@@ -332,6 +333,7 @@
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Alta_Afiliado
             // 
@@ -350,13 +352,13 @@
 
         #endregion
 
-               private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox groupAltaAfiliado;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.LinkLabel linkCleanCliente;
+        private System.Windows.Forms.LinkLabel linkCleanAfiliado;
         private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label12;
@@ -366,9 +368,9 @@
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtDirección;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbTipoDni;
+        private System.Windows.Forms.ComboBox cmbTipoDocumento;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbCantidadFamiliares;
