@@ -57,7 +57,7 @@ namespace ClinicaFrba.Abm_Afiliado
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int parsedValue;
-            int id_afiliado;
+            int nro_afiliado;
             int id_usuario;
 
             if (
@@ -125,9 +125,9 @@ namespace ClinicaFrba.Abm_Afiliado
                 }
                 else
                 {
-                    id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                    nro_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
                     id_usuario = Convert.ToInt32(tabla.Rows[0].ItemArray[1]);
-                    MessageBox.Show("Id de afiliado: " + id_afiliado + " - Id de usuario: " + id_usuario);
+                    MessageBox.Show("Nro de afiliado: " + nro_afiliado + " - Id de usuario: " + id_usuario);
                     this.Close();
                 }
             }
