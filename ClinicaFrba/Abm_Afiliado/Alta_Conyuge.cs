@@ -11,10 +11,15 @@ using ClinicaFrba.DB_Connection;
 
 namespace ClinicaFrba.Abm_Afiliado
 {
-    public partial class Alta_Afiliado : Form
+    public partial class Alta_Conyuge : Form
     {
-        public Alta_Afiliado()
+        public int id_usuario { get; set; }
+        public int id_afiliado_raiz { get; set; }
+
+        public Alta_Conyuge(int id_afiliado_raiz, int id_usuario)
         {
+            this.id_usuario = id_usuario;
+            this.id_afiliado_raiz = id_afiliado_raiz;
             InitializeComponent();
             inicializarCombos();
         }
@@ -52,7 +57,7 @@ namespace ClinicaFrba.Abm_Afiliado
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int parsedValue;
-            int id_afiliado_raiz;
+            int id_afiliado;
             int id_usuario;
 
             if (
@@ -82,7 +87,7 @@ namespace ClinicaFrba.Abm_Afiliado
 
                 List<Parametro> parametros = new List<Parametro>();
 
-                Parametro param_id_afiliado_raiz = new Parametro("id_afiliado_raiz", 0);
+                Parametro param_id_afiliado_raiz = new Parametro("id_afiliado_raiz", this.id_afiliado_raiz);
                 parametros.Add(param_id_afiliado_raiz);
                 Parametro nombre = new Parametro("nombre", txtNombre.Text);
                 parametros.Add(nombre);
@@ -106,11 +111,11 @@ namespace ClinicaFrba.Abm_Afiliado
                 parametros.Add(sexo);
                 Parametro id_plan = new Parametro("id_plan", cmbPlan.SelectedValue);
                 parametros.Add(id_plan);
-                Parametro cantidad_familiares = new Parametro("cantidad_familiares", cmbCantidadFamiliares.Text);
+                Parametro cantidad_familiares = new Parametro("cantidad_familiares", 0);
                 parametros.Add(cantidad_familiares);
                 Parametro hijo = new Parametro("hijo", 0);
                 parametros.Add(hijo);
-                Parametro conyuge = new Parametro("conyuge", 0);
+                Parametro conyuge = new Parametro("conyuge", 1);
                 parametros.Add(conyuge);
 
                 DataTable tabla = sql.ejecutarSP("usp_alta_afiliado", parametros);
@@ -120,10 +125,9 @@ namespace ClinicaFrba.Abm_Afiliado
                 }
                 else
                 {
-                    id_afiliado_raiz = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                    id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
                     id_usuario = Convert.ToInt32(tabla.Rows[0].ItemArray[1]);
-                    Alta_Familiares af = new Alta_Familiares(id_afiliado_raiz,id_usuario);
-                    af.ShowDialog();
+                    MessageBox.Show("Id de afiliado: " + id_afiliado + " - Id de usuario: " + id_usuario);
                     this.Close();
                 }
             }
@@ -140,9 +144,6 @@ namespace ClinicaFrba.Abm_Afiliado
             "M",
             "F"});
             inicializarTipoDocumento();
-            cmbCantidadFamiliares.Items.AddRange(new object[] {
-                0,1,2,3,4,5,6,7,8,9,10});
-            this.cmbCantidadFamiliares.SelectedIndex = 0;
             inicializarPlanes();
             inicializarEstadosCiviles();
         }
@@ -195,7 +196,6 @@ namespace ClinicaFrba.Abm_Afiliado
             this.txtEmail.Text = String.Empty;
             this.txtNombre.Text = String.Empty;
             this.txtTelefono.Text = String.Empty;
-            this.cmbCantidadFamiliares.SelectedIndex = 0;
             this.cmbEstadoCivil.SelectedIndex = 0;
             this.cmbPlan.SelectedIndex = 0;
             this.cmbSexo.SelectedItem = null;

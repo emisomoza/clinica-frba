@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace ClinicaFrba.Abm_Afiliado
 {
-    public partial class ABMAfiliado : Form
+    public partial class Alta_Hijo : Form
     {
-        public ABMAfiliado()
+        public Alta_Hijo()
         {
             InitializeComponent();
-        }
-
-        private void boton_alta_afiliado(object sender, EventArgs e)
-        {
-            Alta_Afiliado aa = new Alta_Afiliado();
-            aa.ShowDialog();
         }
     }
 }
