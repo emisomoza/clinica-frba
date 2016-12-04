@@ -61,6 +61,7 @@
             this.btnPlanes.TabIndex = 2;
             this.btnPlanes.Text = "Cambio de plan";
             this.btnPlanes.UseVisualStyleBackColor = true;
+            this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
             // 
             // btnModificar
             // 
@@ -70,6 +71,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar Afiliado";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // ABMAfiliado
             // 
