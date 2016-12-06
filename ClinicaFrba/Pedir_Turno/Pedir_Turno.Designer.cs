@@ -49,7 +49,7 @@
             this.lblDia = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDocumento = new System.Windows.Forms.TextBox();
             this.btnAfiliado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -78,6 +78,7 @@
             this.btnSeleccionar.TabIndex = 2;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // btnFiltrar
             // 
@@ -87,6 +88,7 @@
             this.btnFiltrar.TabIndex = 3;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // label2
             // 
@@ -237,16 +239,16 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 13);
+            this.label6.Size = new System.Drawing.Size(131, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Ingresa nro de afiliado";
+            this.label6.Text = "Ingresa nro de documento";
             // 
-            // textBox1
+            // txtDocumento
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 21;
+            this.txtDocumento.Location = new System.Drawing.Point(150, 31);
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(100, 20);
+            this.txtDocumento.TabIndex = 21;
             // 
             // btnAfiliado
             // 
@@ -256,6 +258,7 @@
             this.btnAfiliado.TabIndex = 22;
             this.btnAfiliado.Text = "Comprobar";
             this.btnAfiliado.UseVisualStyleBackColor = true;
+            this.btnAfiliado.Click += new System.EventHandler(this.btnAfiliado_Click);
             // 
             // Pedir_Turno
             // 
@@ -263,7 +266,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 358);
             this.Controls.Add(this.btnAfiliado);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblDia);
@@ -315,7 +318,7 @@
         private System.Windows.Forms.Label lblDia;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Button btnAfiliado;
     }
 }
