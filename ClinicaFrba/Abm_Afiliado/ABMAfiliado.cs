@@ -22,5 +22,17 @@ namespace ClinicaFrba.Abm_Afiliado
             Alta_Afiliado aa = new Alta_Afiliado();
             aa.ShowDialog();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Modificar_Afiliado ma = new Modificar_Afiliado();
+            ma.ShowDialog();
+        }
+
+        private void btnPlanes_Click(object sender, EventArgs e)
+        {
+            Modificar_Plan mp = new Modificar_Plan();
+            mp.ShowDialog();
+        }
     }
 }

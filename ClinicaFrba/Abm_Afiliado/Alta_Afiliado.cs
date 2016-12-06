@@ -53,6 +53,7 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             int parsedValue;
             int id_afiliado_raiz;
+            int nro_afiliado;
             int id_usuario;
 
             if (
@@ -122,9 +123,18 @@ namespace ClinicaFrba.Abm_Afiliado
                 {
                     id_afiliado_raiz = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
                     id_usuario = Convert.ToInt32(tabla.Rows[0].ItemArray[1]);
-                    Alta_Familiares af = new Alta_Familiares(id_afiliado_raiz,id_usuario);
-                    af.ShowDialog();
-                    this.Close();
+                    nro_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[2]);
+                    if (Convert.ToInt32(cmbCantidadFamiliares.Text) > 0)
+                    {
+                        this.Close();
+                        Alta_Familiares af = new Alta_Familiares(id_afiliado_raiz, id_usuario, nro_afiliado);
+                        af.ShowDialog();
+                    }
+                    else
+                    {
+                        this.Close();
+                        MessageBox.Show("Nro de afiliado: " + nro_afiliado + " - Id de usuario: " + id_usuario);
+                    }
                 }
             }
         }
