@@ -129,6 +129,7 @@ namespace ClinicaFrba.Menu
             this.pedirTurnoToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.pedirTurnoToolStripMenuItem.Text = "Pedir turno";
             this.pedirTurnoToolStripMenuItem.Visible = false;
+            this.pedirTurnoToolStripMenuItem.Click += new System.EventHandler(this.pedirTurnoToolStripMenuItem_Click);
             // 
             // registrarLlegadaToolStripMenuItem
             // 
@@ -136,6 +137,7 @@ namespace ClinicaFrba.Menu
             this.registrarLlegadaToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
             this.registrarLlegadaToolStripMenuItem.Text = "Registrar llegada";
             this.registrarLlegadaToolStripMenuItem.Visible = false;
+            this.registrarLlegadaToolStripMenuItem.Click += new System.EventHandler(this.registrarLlegadaToolStripMenuItem_Click);
             // 
             // rolToolStripMenuItem
             // 
@@ -151,6 +153,7 @@ namespace ClinicaFrba.Menu
             this.afiliadosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.afiliadosToolStripMenuItem.Text = "Afiliados";
             this.afiliadosToolStripMenuItem.Visible = false;
+            this.afiliadosToolStripMenuItem.Click += new System.EventHandler(this.afiliadosToolStripMenuItem_Click);
             // 
             // registrarResultadoDeConsultaToolStripMenuItem
             // 

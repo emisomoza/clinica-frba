@@ -1,4 +1,4 @@
-﻿namespace ClinicaFrba.Pedir_Turno
+﻿namespace ClinicaFrba.Pedido_Turno
 {
     partial class Pedir_Turno
     {

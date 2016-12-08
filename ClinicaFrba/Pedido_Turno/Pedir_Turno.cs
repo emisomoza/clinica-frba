@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using ClinicaFrba.DB_Connection;
 using ClinicaFrba.Properties;
 
-namespace ClinicaFrba.Pedir_Turno
+namespace ClinicaFrba.Pedido_Turno
 {
     public partial class Pedir_Turno : Form
     {

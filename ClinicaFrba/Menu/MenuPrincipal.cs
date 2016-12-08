@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicaFrba.Registro_Llegada;
+using ClinicaFrba.Pedido_Turno;
+using ClinicaFrba.Abm_Afiliado;
 
 namespace ClinicaFrba.Menu
 {
@@ -86,9 +89,30 @@ namespace ClinicaFrba.Menu
 
         private void compraBonoToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Comprar_Bono compra_bono = new Comprar_Bono();
+            Comprar_Bono compra_bono = new Comprar_Bono(id_usuario, id_rol);
             compra_bono.MdiParent = this;
             compra_bono.Show();
+        }
+
+        private void registrarLlegadaToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Registrar_Llegada registro_llegada = new Registrar_Llegada();
+            registro_llegada.MdiParent = this;
+            registro_llegada.Show();
+        }
+
+        private void pedirTurnoToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Pedir_Turno pedir_turno = new Pedir_Turno();
+            pedir_turno.MdiParent = this;
+            pedir_turno.Show();
+        }
+
+        private void afiliadosToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            ABMAfiliado abm_afiliados = new ABMAfiliado();
+            abm_afiliados.MdiParent = this;
+            abm_afiliados.Show();
         }
     }
 }
