@@ -93,22 +93,16 @@ namespace ClinicaFrba.DB_Connection
             return table;
         }
 
-        public DataTable ejecutarConsulta(string query)
-        {
-            if (query.Length == 0)
-            {
+        public DataTable ejecutarConsulta(string query) {
+            if (query.Length == 0) {
                 throw (new Exception());
             }
-
-            try
-            {
+            try {
                 DataTable dato = new DataTable();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, abrirConexion());
                 dataAdapter.Fill(dato);
                 return dato;
-            }
-            catch (SqlException exsql)
-            {
+            } catch (SqlException exsql) {
                 throw exsql;
             }
         }
