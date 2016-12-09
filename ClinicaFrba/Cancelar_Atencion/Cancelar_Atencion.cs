@@ -25,7 +25,7 @@ namespace ClinicaFrba.Cancelar_Atencion
 
         private void btnAfiliado_Click(object sender, EventArgs e)
         {
-            Cancelar_Atencion_Afiliado caa = new Cancelar_Atencion_Afiliado();
+            Cancelar_Atencion_Afiliado caa = new Cancelar_Atencion_Afiliado(0);
             caa.ShowDialog();
         }
     }
