@@ -25,7 +25,7 @@ namespace ClinicaFrba.Cancelar_Atencion
         private void obtenerDocumentoUsuario(int id_usuario)
         {
             this.id_usuario = id_usuario;
-            if (id_usuario != 0)
+            if (id_usuario != 0 && id_usuario != 1)
             {
                 SQL sql = new SQL();
                 List<Parametro> parametros = new List<Parametro>();
@@ -52,6 +52,12 @@ namespace ClinicaFrba.Cancelar_Atencion
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
+
+            if (id_usuario == 0 || id_usuario == 1)
+            {
+                getAfiliadosPorDocumento(txtDocumento.Text.ToString());
+            }
+
             SQL sql = new SQL();
             List<Parametro> parametros = new List<Parametro>();
 
@@ -74,11 +80,6 @@ namespace ClinicaFrba.Cancelar_Atencion
             {
                 dgvTurnos.DataSource = tabla;
                 this.dgvTurnos.AllowUserToAddRows = false;
-            }
-
-            if (id_usuario == 0)
-            {
-                getAfiliadosPorDocumento(txtDocumento.Text.ToString());
             }
         }
 

@@ -77,6 +77,8 @@ namespace ClinicaFrba.Cancelar_Atencion
                 parametros.Add(fecha_desde);
                 Parametro fecha_hasta = new Parametro("fecha_hasta", dtpHasta.Value);
                 parametros.Add(fecha_hasta);
+                Parametro fecha_actual = new Parametro("fecha_actual", Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1).Day.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1).Month.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1).Year.ToString());
+                parametros.Add(fecha_actual);
                 Parametro motivo = new Parametro("motivo", txtMotivo.Text.ToString());
                 parametros.Add(motivo);
 

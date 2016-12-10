@@ -114,5 +114,40 @@ namespace ClinicaFrba.Menu
             abm_afiliados.MdiParent = this;
             abm_afiliados.Show();
         }
+
+        private void cancelarAtencionPorAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.Cancelar_Atencion ca = new Cancelar_Atencion.Cancelar_Atencion();
+            ca.MdiParent = this;
+            ca.Show();
+        }
+
+        private void cancelarAtenciónPorAfiliadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.Cancelar_Atencion_Afiliado ca = new Cancelar_Atencion.Cancelar_Atencion_Afiliado(id_usuario);
+            ca.MdiParent = this;
+            ca.Show();
+        }
+
+        private void cancelarAtenciónPorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.Cancelar_Atencion_Medica ca = new Cancelar_Atencion.Cancelar_Atencion_Medica();
+            ca.MdiParent = this;
+            ca.Show();
+        }
+
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Abm_Afiliado.Modificar_Plan mp = new Abm_Afiliado.Modificar_Plan();
+            mp.MdiParent = this;
+            mp.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pedido_Turno.Pedir_Turno pt = new Pedido_Turno.Pedir_Turno();
+            pt.MdiParent = this;
+            pt.Show();
+        }
     }
 }
