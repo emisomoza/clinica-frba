@@ -49,6 +49,7 @@ namespace ClinicaFrba.Menu
                             this.pedirTurnoToolStripMenuItem.Visible = true;
                             break;
                         case 3: // Sacar Turno (admin)
+                            this.pedirTurnoToolStripMenuItem.Visible = true;
                             break;
                         case 4: // Cancelar Turno
                             this.cancelarAtenciónToolStripMenuItem.Visible = true;
@@ -116,11 +117,38 @@ namespace ClinicaFrba.Menu
             abm_afiliados.Show();
         }
 
-        private void registrarResultadoDeConsultaToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
+        private void registrarResultadoDeConsultaToolStripMenuItem_Click(object sender, System.EventArgs e) {
             Registrar_Resultado registro_resultado = new Registrar_Resultado(id_usuario, id_rol);
             registro_resultado.MdiParent = this;
             registro_resultado.Show();
+        }
+
+        private void cancelarAtencionPorAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.Cancelar_Atencion ca = new Cancelar_Atencion.Cancelar_Atencion();
+            ca.MdiParent = this;
+            ca.Show();
+        }
+
+        private void cancelarAtenciónPorAfiliadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.Cancelar_Atencion_Afiliado ca = new Cancelar_Atencion.Cancelar_Atencion_Afiliado(id_usuario);
+            ca.MdiParent = this;
+            ca.Show();
+        }
+
+        private void cancelarAtenciónPorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.Cancelar_Atencion_Medica ca = new Cancelar_Atencion.Cancelar_Atencion_Medica();
+            ca.MdiParent = this;
+            ca.Show();
+        }
+
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Abm_Afiliado.Modificar_Plan mp = new Abm_Afiliado.Modificar_Plan();
+            mp.MdiParent = this;
+            mp.Show();
         }
     }
 }

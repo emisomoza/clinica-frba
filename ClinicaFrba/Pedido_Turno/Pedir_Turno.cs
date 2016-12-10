@@ -46,6 +46,8 @@ namespace ClinicaFrba.Pedido_Turno
                 else
                 {
                     id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                    lblAfiliado.Visible = true;
+                    lblAfiliado.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString(); 
                     inicializarEspecialidades();
                     inicializarProfesionales();
                 }
@@ -142,8 +144,85 @@ namespace ClinicaFrba.Pedido_Turno
             }
             else
             {
-                
+                cmbFechas.DataSource = tabla;
+                cmbFechas.DisplayMember = "FECHA";
+                cmbFechas.ValueMember = "FECHA";
+                cmbFechas.SelectedIndex = 0;
             }
         }
+
+        private void btnFecha_Click(object sender, EventArgs e)
+        {
+            buscarHorariosDisponibles();
+        }
+
+        private void buscarHorariosDisponibles()
+        {
+            SQL sql = new SQL();
+            List<Parametro> parametros = new List<Parametro>();
+
+            Parametro id_afiliado_param = new Parametro("id_afiliado", id_afiliado);
+            parametros.Add(id_afiliado_param);
+            Parametro id_especialidad_profesional = new Parametro("id_especialidad_profesional", Convert.ToInt32(cmbProfesional.SelectedValue));
+            parametros.Add(id_especialidad_profesional);
+            Parametro fecha = new Parametro("fecha", Convert.ToDateTime(cmbFechas.SelectedValue).Day.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Month.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Year.ToString());
+            parametros.Add(fecha);
+
+            DataTable tabla = sql.ejecutarSP("usp_horarios_disponibles", parametros);
+            if (tabla.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay horarios disponibles para el día elegido.");
+            }
+            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            {
+                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+            }
+            else
+            {
+                cmbHora.DataSource = tabla;
+                cmbHora.DisplayMember = "HORA";
+                cmbHora.ValueMember = "HORA";
+                cmbHora.SelectedIndex = 0;
+            }
+        }
+
+        private void btnConfirmar_Click_1(object sender, EventArgs e)
+        {
+            SQL sql = new SQL();
+            List<Parametro> parametros = new List<Parametro>();
+
+            Parametro id_afiliado_param = new Parametro("id_afiliado", id_afiliado);
+            parametros.Add(id_afiliado_param);
+            Parametro id_especialidad_profesional = new Parametro("id_especialidad_profesional", Convert.ToInt32(cmbProfesional.SelectedValue));
+            parametros.Add(id_especialidad_profesional);
+            Parametro fecha = new Parametro("fecha", Convert.ToDateTime(cmbFechas.SelectedValue).Day.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Month.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Year.ToString());
+            parametros.Add(fecha);
+            Parametro hora = new Parametro("hora", cmbHora.SelectedValue.ToString());
+            parametros.Add(hora);
+
+            DataTable tabla = sql.ejecutarSP("usp_pedido_turno", parametros);
+            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            {
+                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+            }
+            else
+            {
+                MessageBox.Show("Turno asignado exitosamente.");
+            }
+        }
+
+        private void linkLimpiar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.cmbProfesional.DataSource = null;
+            this.cmbProfesional.Items.Clear();
+            this.cmbHora.DataSource = null;
+            this.cmbHora.Items.Clear();
+            this.cmbFechas.DataSource = null;
+            this.cmbFechas.Items.Clear();
+            this.cmbEspecialidades.DataSource = null;
+            this.cmbEspecialidades.Items.Clear();
+            this.lblAfiliado.Visible = false;
+        }
+
     }
 }
