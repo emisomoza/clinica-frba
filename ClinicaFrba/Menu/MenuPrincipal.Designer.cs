@@ -161,6 +161,7 @@ namespace ClinicaFrba.Menu
             this.registrarResultadoDeConsultaToolStripMenuItem.Size = new System.Drawing.Size(181, 20);
             this.registrarResultadoDeConsultaToolStripMenuItem.Text = "Registrar resultado de consulta";
             this.registrarResultadoDeConsultaToolStripMenuItem.Visible = false;
+            this.registrarResultadoDeConsultaToolStripMenuItem.Click += new System.EventHandler(this.registrarResultadoDeConsultaToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 

@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using ClinicaFrba.Registro_Llegada;
 using ClinicaFrba.Pedido_Turno;
 using ClinicaFrba.Abm_Afiliado;
+using ClinicaFrba.Registro_Resultado;
 
 namespace ClinicaFrba.Menu
 {
@@ -113,6 +114,13 @@ namespace ClinicaFrba.Menu
             ABMAfiliado abm_afiliados = new ABMAfiliado();
             abm_afiliados.MdiParent = this;
             abm_afiliados.Show();
+        }
+
+        private void registrarResultadoDeConsultaToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Registrar_Resultado registro_resultado = new Registrar_Resultado(id_usuario, id_rol);
+            registro_resultado.MdiParent = this;
+            registro_resultado.Show();
         }
     }
 }
