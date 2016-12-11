@@ -52,6 +52,7 @@
             this.btnBaja.TabIndex = 1;
             this.btnBaja.Text = "Baja de Afiliado";
             this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnPlanes
             // 

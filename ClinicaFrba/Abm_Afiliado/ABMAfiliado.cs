@@ -34,5 +34,11 @@ namespace ClinicaFrba.Abm_Afiliado
             Modificar_Plan mp = new Modificar_Plan();
             mp.ShowDialog();
         }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            Baja_Afiliado ba = new Baja_Afiliado();
+            ba.ShowDialog();
+        }
     }
 }
