@@ -125,7 +125,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 }
                 else
                 {
-                    nro_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                    nro_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[2]);
                     id_usuario = Convert.ToInt32(tabla.Rows[0].ItemArray[1]);
                     MessageBox.Show("Nro de afiliado: " + nro_afiliado + " - Id de usuario: " + id_usuario);
                     this.Close();
