@@ -33,17 +33,12 @@ namespace ClinicaFrba.Menu
             this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afiliadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtenciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtencionPorAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtenciónPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraBonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verEstadísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadesMasCanceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profesionalesMasConsultadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afiliadosConMasBonosCompradosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadesConMasBonosUsadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedirTurnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarLlegadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarResultadoDeConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +65,7 @@ namespace ClinicaFrba.Menu
             // 
             this.aBMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rolToolStripMenuItem,
-            this.afiliadosToolStripMenuItem,
-            this.planesToolStripMenuItem});
+            this.afiliadosToolStripMenuItem});
             this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
             this.aBMToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.aBMToolStripMenuItem.Text = "ABMs";
@@ -92,13 +86,6 @@ namespace ClinicaFrba.Menu
             this.afiliadosToolStripMenuItem.Text = "Afiliados";
             this.afiliadosToolStripMenuItem.Visible = false;
             this.afiliadosToolStripMenuItem.Click += new System.EventHandler(this.afiliadosToolStripMenuItem_Click);
-            // 
-            // planesToolStripMenuItem
-            // 
-            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.planesToolStripMenuItem.Text = "Planes";
-            this.planesToolStripMenuItem.Click += new System.EventHandler(this.planesToolStripMenuItem_Click);
             // 
             // cancelarAtenciónToolStripMenuItem
             // 
@@ -142,39 +129,11 @@ namespace ClinicaFrba.Menu
             // 
             // verEstadísticasToolStripMenuItem
             // 
-            this.verEstadísticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.especialidadesMasCanceladasToolStripMenuItem,
-            this.profesionalesMasConsultadosToolStripMenuItem,
-            this.afiliadosConMasBonosCompradosToolStripMenuItem,
-            this.especialidadesConMasBonosUsadosToolStripMenuItem});
             this.verEstadísticasToolStripMenuItem.Name = "verEstadísticasToolStripMenuItem";
             this.verEstadísticasToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.verEstadísticasToolStripMenuItem.Text = "Ver Estadísticas";
             this.verEstadísticasToolStripMenuItem.Visible = false;
-            // 
-            // especialidadesMasCanceladasToolStripMenuItem
-            // 
-            this.especialidadesMasCanceladasToolStripMenuItem.Name = "especialidadesMasCanceladasToolStripMenuItem";
-            this.especialidadesMasCanceladasToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.especialidadesMasCanceladasToolStripMenuItem.Text = "Especialidades mas canceladas";
-            // 
-            // profesionalesMasConsultadosToolStripMenuItem
-            // 
-            this.profesionalesMasConsultadosToolStripMenuItem.Name = "profesionalesMasConsultadosToolStripMenuItem";
-            this.profesionalesMasConsultadosToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.profesionalesMasConsultadosToolStripMenuItem.Text = "Profesionales mas consultados";
-            // 
-            // afiliadosConMasBonosCompradosToolStripMenuItem
-            // 
-            this.afiliadosConMasBonosCompradosToolStripMenuItem.Name = "afiliadosConMasBonosCompradosToolStripMenuItem";
-            this.afiliadosConMasBonosCompradosToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.afiliadosConMasBonosCompradosToolStripMenuItem.Text = "Afiliados con mas bonos comprados";
-            // 
-            // especialidadesConMasBonosUsadosToolStripMenuItem
-            // 
-            this.especialidadesConMasBonosUsadosToolStripMenuItem.Name = "especialidadesConMasBonosUsadosToolStripMenuItem";
-            this.especialidadesConMasBonosUsadosToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.especialidadesConMasBonosUsadosToolStripMenuItem.Text = "Especialidades con mas bonos usados";
+            this.verEstadísticasToolStripMenuItem.Click += new System.EventHandler(this.verEstadisticasToolStripMenuItem_Click);
             // 
             // pedirTurnoToolStripMenuItem
             // 
@@ -225,16 +184,11 @@ namespace ClinicaFrba.Menu
         private System.Windows.Forms.ToolStripMenuItem cancelarAtenciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compraBonoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verEstadísticasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem especialidadesMasCanceladasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem profesionalesMasConsultadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afiliadosConMasBonosCompradosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem especialidadesConMasBonosUsadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedirTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarLlegadaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afiliadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarResultadoDeConsultaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarAtencionPorAdminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarAtenciónPorAfiliadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarAtenciónPorToolStripMenuItem;

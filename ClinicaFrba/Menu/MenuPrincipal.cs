@@ -14,6 +14,7 @@ using ClinicaFrba.Registro_Llegada;
 using ClinicaFrba.Pedido_Turno;
 using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Registro_Resultado;
+using ClinicaFrba.Listados;
 
 namespace ClinicaFrba.Menu
 {
@@ -144,11 +145,11 @@ namespace ClinicaFrba.Menu
             ca.Show();
         }
 
-        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void verEstadisticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Abm_Afiliado.Modificar_Plan mp = new Abm_Afiliado.Modificar_Plan();
-            mp.MdiParent = this;
-            mp.Show();
+            Estadisticas estadisticas = new Estadisticas();
+            estadisticas.MdiParent = this;
+            estadisticas.Show();
         }
     }
 }

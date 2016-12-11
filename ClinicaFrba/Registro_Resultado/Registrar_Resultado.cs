@@ -21,31 +21,30 @@ namespace ClinicaFrba.Registro_Resultado
         {
             InitializeComponent();
 
-            if (!validarRol(id_rol)) {
-                MessageBox.Show("Operación permitida únicamente para Profesionales.");
-                this.Close();
-            } else {
-                this.id_profesional = getIdProfesional(id_usuario);
+            validarRol(id_rol);
 
-                String query = "SELECT * FROM [" + Settings.Default.SQL_Schema + "].fn_traer_turnos_profesional (" +
-                                id_profesional + ");";
-                DataTable tabla = sql.ejecutarConsulta(query);
-                dataGridView1.ReadOnly = true;
-                dataGridView1.DataSource = tabla;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-                dataGridView1.AllowUserToOrderColumns = true;
-                dataGridView1.AllowUserToResizeColumns = true;
-            }
+            this.id_profesional = getIdProfesional(id_usuario);
+
+            String query = "SELECT * FROM [" + Settings.Default.SQL_Schema + "].fn_traer_turnos_profesional (" +
+                            id_profesional + ");";
+            DataTable tabla = sql.ejecutarConsulta(query);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.DataSource = tabla;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.AllowUserToResizeColumns = true;
         }
 
-        public bool validarRol(int id_rol) {
+        public void validarRol(int id_rol) {
             String query = "SELECT NOMBRE FROM [" + Settings.Default.SQL_Schema + "].ROL WHERE ID_ROL = " + id_rol + ";";
             DataTable tabla = sql.ejecutarConsulta(query);
             if (tabla.Rows.Count > 0) {
-                return "Profesional" == tabla.Rows[0].ItemArray[0].ToString();
+                if ("Profesional" != tabla.Rows[0].ItemArray[0].ToString()) {
+                    MessageBox.Show("Operación permitida únicamente para Profesionales.");
+                    this.Close();
+                }
             }
-            return false;
         }
 
         public int getIdProfesional(int id_usuario) {
