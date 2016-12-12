@@ -17,14 +17,14 @@ namespace ClinicaFrba.Registro_Resultado
         int id_profesional;
         SQL sql = new SQL();
 
-        public Registrar_Resultado(int id_usuario, int id_rol)
+        public Registrar_Resultado(int id_profesional)
         {
             InitializeComponent();
+            this.id_profesional = id_profesional;
+        }
 
-            validarRol(id_rol);
-
-            this.id_profesional = getIdProfesional(id_usuario);
-
+        private void Registrar_Resultado_Load(object sender, EventArgs e)
+        {
             String query = "SELECT * FROM [" + Settings.Default.SQL_Schema + "].fn_traer_turnos_profesional (" +
                             id_profesional + ");";
             DataTable tabla = sql.ejecutarConsulta(query);
@@ -34,31 +34,6 @@ namespace ClinicaFrba.Registro_Resultado
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AllowUserToResizeColumns = true;
-        }
-
-        public void validarRol(int id_rol) {
-            String query = "SELECT NOMBRE FROM [" + Settings.Default.SQL_Schema + "].ROL WHERE ID_ROL = " + id_rol + ";";
-            DataTable tabla = sql.ejecutarConsulta(query);
-            if (tabla.Rows.Count > 0) {
-                if ("Profesional" != tabla.Rows[0].ItemArray[0].ToString()) {
-                    MessageBox.Show("Operación permitida únicamente para Profesionales.");
-                    this.Close();
-                }
-            }
-        }
-
-        public int getIdProfesional(int id_usuario) {
-            String query = "SELECT p.ID_PROFESIONAL FROM [" + Settings.Default.SQL_Schema + "].USUARIO u " +
-                            "INNER JOIN [" + Settings.Default.SQL_Schema + "].PROFESIONAL p on u.NOMBRE = p.NRO_DOCUMENTO " +
-                            "WHERE u.NOMBRE NOT LIKE 'admin' AND u.ID_USUARIO = " + id_usuario + ";";
-            DataTable tabla = sql.ejecutarConsulta(query);
-            if (tabla.Rows.Count > 0) {
-                return int.Parse(tabla.Rows[0].ItemArray[0].ToString());
-            } else {
-                MessageBox.Show("Este usuario no corresponde a un profesional.");
-                this.Close();
-                return 0;
-            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -151,7 +151,7 @@
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label1);
             this.Name = "Cancelar_Atencion_Medica";
-            this.Text = "Cancelar_Atencion_Medica";
+            this.Text = "Cancelar Atencion Profesional";
             this.ResumeLayout(false);
             this.PerformLayout();
 

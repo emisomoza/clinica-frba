@@ -34,7 +34,7 @@ namespace ClinicaFrba.Menu
             this.rolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afiliadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtenciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarAtencionPorAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            //this.cancelarAtencionPorAdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarAtenciónPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraBonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +90,7 @@ namespace ClinicaFrba.Menu
             // cancelarAtenciónToolStripMenuItem
             // 
             this.cancelarAtenciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cancelarAtencionPorAdminToolStripMenuItem,
+            //this.cancelarAtencionPorAdminToolStripMenuItem,
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem,
             this.cancelarAtenciónPorToolStripMenuItem});
             this.cancelarAtenciónToolStripMenuItem.Name = "cancelarAtenciónToolStripMenuItem";
@@ -100,16 +100,18 @@ namespace ClinicaFrba.Menu
             // 
             // cancelarAtencionPorAdminToolStripMenuItem
             // 
-            this.cancelarAtencionPorAdminToolStripMenuItem.Name = "cancelarAtencionPorAdminToolStripMenuItem";
-            this.cancelarAtencionPorAdminToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
-            this.cancelarAtencionPorAdminToolStripMenuItem.Text = "Cancelar Atención por Admin";
-            this.cancelarAtencionPorAdminToolStripMenuItem.Click += new System.EventHandler(this.cancelarAtencionPorAdminToolStripMenuItem_Click);
+            //this.cancelarAtencionPorAdminToolStripMenuItem.Name = "cancelarAtencionPorAdminToolStripMenuItem";
+            //this.cancelarAtencionPorAdminToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            //this.cancelarAtencionPorAdminToolStripMenuItem.Text = "Cancelar Atención por Admin";
+            //this.cancelarAtencionPorAdminToolStripMenuItem.Visible = false;
+            //this.cancelarAtencionPorAdminToolStripMenuItem.Click += new System.EventHandler(this.cancelarAtencionPorAdminToolStripMenuItem_Click);
             // 
             // cancelarAtenciónPorAfiliadoToolStripMenuItem
             // 
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem.Name = "cancelarAtenciónPorAfiliadoToolStripMenuItem";
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem.Text = "Cancelar Atención por Afiliado";
+            this.cancelarAtenciónPorAfiliadoToolStripMenuItem.Visible = false;
             this.cancelarAtenciónPorAfiliadoToolStripMenuItem.Click += new System.EventHandler(this.cancelarAtenciónPorAfiliadoToolStripMenuItem_Click);
             // 
             // cancelarAtenciónPorToolStripMenuItem
@@ -117,6 +119,7 @@ namespace ClinicaFrba.Menu
             this.cancelarAtenciónPorToolStripMenuItem.Name = "cancelarAtenciónPorToolStripMenuItem";
             this.cancelarAtenciónPorToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.cancelarAtenciónPorToolStripMenuItem.Text = "Cancelar Atención por Profesional";
+            this.cancelarAtenciónPorToolStripMenuItem.Visible = false;
             this.cancelarAtenciónPorToolStripMenuItem.Click += new System.EventHandler(this.cancelarAtenciónPorToolStripMenuItem_Click);
             // 
             // compraBonoToolStripMenuItem
@@ -167,7 +170,7 @@ namespace ClinicaFrba.Menu
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal";
-            this.Text = "MenuPrincipal";
+            this.Text = "Menu Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -189,7 +192,7 @@ namespace ClinicaFrba.Menu
         private System.Windows.Forms.ToolStripMenuItem rolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afiliadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarResultadoDeConsultaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarAtencionPorAdminToolStripMenuItem;
+        //private System.Windows.Forms.ToolStripMenuItem cancelarAtencionPorAdminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarAtenciónPorAfiliadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarAtenciónPorToolStripMenuItem;
 

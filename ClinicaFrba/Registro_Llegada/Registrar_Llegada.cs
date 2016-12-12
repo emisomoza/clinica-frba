@@ -33,11 +33,11 @@ namespace ClinicaFrba.Registro_Llegada
 
         private void especialidades_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            String query = "SELECT p.ID_PROFESIONAL, CONCAT(p.APELLIDO, ', ', p.NOMBRE) as nomyap " +
+            String query = "SELECT 0 as ID_PROFESIONAL, 'Seleccionar profesional' as nomyap " +
+                            "UNION SELECT p.ID_PROFESIONAL, CONCAT(p.APELLIDO, ', ', p.NOMBRE) as nomyap " +
                             "FROM [" + Settings.Default.SQL_Schema + "].[PROFESIONAL] p " +
                             "INNER JOIN [" + Settings.Default.SQL_Schema + "].ESPECIALIDAD_PROFESIONAL ep on p.ID_PROFESIONAL = ep.ID_PROFESIONAL " +
-                            "WHERE ep.ID_ESPECIALIDAD = " + int.Parse(especialidades.SelectedValue.ToString()) + 
-                            "ORDER BY 2;";
+                            "WHERE ep.ID_ESPECIALIDAD = " + int.Parse(especialidades.SelectedValue.ToString()) + ";";
             DataTable tabla = sql.ejecutarConsulta(query);
             if (tabla.Rows.Count > 0)
             {
@@ -51,7 +51,8 @@ namespace ClinicaFrba.Registro_Llegada
         {
             String query = "SELECT * FROM [" + Settings.Default.SQL_Schema + "].fn_traer_turnos (" +
                             int.Parse(especialidades.SelectedValue.ToString()) + ", " +
-                            int.Parse(profesionales.SelectedValue.ToString()) + ");";
+                            int.Parse(profesionales.SelectedValue.ToString()) + ", '" +
+                            Settings.Default.Fecha_Sistema.ToShortDateString() + "');";
             DataTable tabla = sql.ejecutarConsulta(query);
             dataGridView1.ReadOnly = true;
             dataGridView1.DataSource = tabla;

@@ -45,7 +45,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(260, 237);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.AllowUserToAddRows = false;
             // 
             // Registrar_Resultado
             // 
@@ -55,6 +54,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Registrar_Resultado";
             this.Text = "Registrar Resultado";
+            this.Load += new System.EventHandler(this.Registrar_Resultado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
