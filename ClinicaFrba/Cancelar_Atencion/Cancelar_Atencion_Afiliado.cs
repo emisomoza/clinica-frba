@@ -25,38 +25,33 @@ namespace ClinicaFrba.Cancelar_Atencion
         private void obtenerDocumentoUsuario(int id_usuario)
         {
             this.id_usuario = id_usuario;
-            if (id_usuario != 0 && id_usuario != 1)
+
+            SQL sql = new SQL();
+            List<Parametro> parametros = new List<Parametro>();
+
+            Parametro id_usuario_param = new Parametro("id_usuario", id_usuario);
+            parametros.Add(id_usuario_param);
+
+            DataTable tabla = sql.ejecutarSP("usp_obtener_afiliado_x_usuario", parametros);
+
+            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
-                SQL sql = new SQL();
-                List<Parametro> parametros = new List<Parametro>();
-
-                Parametro id_usuario_param = new Parametro("id_usuario", id_usuario);
-                parametros.Add(id_usuario_param);
-
-                DataTable tabla = sql.ejecutarSP("usp_obtener_datos_x_usuario", parametros);
-
-                if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
-                {
-                    MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
-                }
-                else
-                {
-                    txtDocumento.Text = tabla.Rows[0].ItemArray[1].ToString();
-                    txtDocumento.Enabled = false;
-                    lblProfesional.Text = tabla.Rows[0].ItemArray[4].ToString() + ", " + tabla.Rows[0].ItemArray[3].ToString();
-                    lblProfesional.Visible = true;
-                    id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0].ToString());
-                }
+                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+            }
+            else if (tabla.Rows.Count > 0)
+            {
+                txtDocumento.Text = tabla.Rows[0].ItemArray[1].ToString();
+                txtDocumento.Enabled = false;
+                lblProfesional.Text = tabla.Rows[0].ItemArray[4].ToString() + ", " + tabla.Rows[0].ItemArray[3].ToString();
+                lblProfesional.Visible = true;
+                id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0].ToString());
             }
         }
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
 
-            if (id_usuario == 0 || id_usuario == 1)
-            {
-                getAfiliadosPorDocumento(txtDocumento.Text.ToString());
-            }
+            getAfiliadosPorDocumento(txtDocumento.Text.ToString());
 
             SQL sql = new SQL();
             List<Parametro> parametros = new List<Parametro>();
@@ -92,7 +87,11 @@ namespace ClinicaFrba.Cancelar_Atencion
             parametros.Add(documento_param);
 
             DataTable tabla = sql.ejecutarSP("usp_obtener_afiliados_x_documento", parametros);
-            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            if (tabla.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encuentra afiliado con el documento ingresado");
+            }
+            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
                 MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
             }

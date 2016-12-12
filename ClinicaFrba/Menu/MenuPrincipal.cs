@@ -140,7 +140,7 @@ namespace ClinicaFrba.Menu
 
         private void cancelarAtenciónPorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cancelar_Atencion.Cancelar_Atencion_Medica ca = new Cancelar_Atencion.Cancelar_Atencion_Medica();
+            Cancelar_Atencion.Cancelar_Atencion_Medica ca = new Cancelar_Atencion.Cancelar_Atencion_Medica(id_usuario);
             ca.MdiParent = this;
             ca.Show();
         }
