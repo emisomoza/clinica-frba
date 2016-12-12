@@ -234,6 +234,8 @@ namespace ClinicaFrba.Pedido_Turno
             {
                 MessageBox.Show("Turno asignado exitosamente.");
             }
+
+            buscarHorariosDisponibles();
         }
 
         private void linkLimpiar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

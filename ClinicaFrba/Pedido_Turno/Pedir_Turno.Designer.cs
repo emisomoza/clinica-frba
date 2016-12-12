@@ -47,13 +47,40 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Ingresa nro de documento";
+            // 
+            // txtDocumento
+            // 
+            this.txtDocumento.Location = new System.Drawing.Point(12, 27);
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(100, 20);
+            this.txtDocumento.TabIndex = 1;
+            this.txtDocumento.Focus();
+            // 
+            // btnAfiliado
+            // 
+            this.btnAfiliado.Location = new System.Drawing.Point(118, 25);
+            this.btnAfiliado.Name = "btnAfiliado";
+            this.btnAfiliado.Size = new System.Drawing.Size(75, 23);
+            this.btnAfiliado.TabIndex = 2;
+            this.btnAfiliado.Text = "Comprobar";
+            this.btnAfiliado.UseVisualStyleBackColor = true;
+            this.btnAfiliado.Click += new System.EventHandler(this.btnAfiliado_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Seleccionar Profesional";
             // 
             // cmbProfesional
@@ -62,27 +89,17 @@
             this.cmbProfesional.Location = new System.Drawing.Point(12, 97);
             this.cmbProfesional.Name = "cmbProfesional";
             this.cmbProfesional.Size = new System.Drawing.Size(164, 21);
-            this.cmbProfesional.TabIndex = 1;
+            this.cmbProfesional.TabIndex = 4;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(198, 97);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 2;
+            this.btnSeleccionar.TabIndex = 5;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(499, 95);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 3;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // label2
             // 
@@ -90,7 +107,7 @@
             this.label2.Location = new System.Drawing.Point(315, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Filtrar por especialidad";
             // 
             // cmbEspecialidades
@@ -99,7 +116,17 @@
             this.cmbEspecialidades.Location = new System.Drawing.Point(318, 97);
             this.cmbEspecialidades.Name = "cmbEspecialidades";
             this.cmbEspecialidades.Size = new System.Drawing.Size(164, 21);
-            this.cmbEspecialidades.TabIndex = 5;
+            this.cmbEspecialidades.TabIndex = 7;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(499, 95);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 8;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // label3
             // 
@@ -107,73 +134,8 @@
             this.label3.Location = new System.Drawing.Point(12, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 9;
             this.label3.Text = "Fechas disponibles:";
-            // 
-            // btnFecha
-            // 
-            this.btnFecha.Location = new System.Drawing.Point(198, 151);
-            this.btnFecha.Name = "btnFecha";
-            this.btnFecha.Size = new System.Drawing.Size(96, 23);
-            this.btnFecha.TabIndex = 8;
-            this.btnFecha.Text = "Confirmar Fecha";
-            this.btnFecha.UseVisualStyleBackColor = true;
-            this.btnFecha.Click += new System.EventHandler(this.btnFecha_Click);
-            // 
-            // cmbHora
-            // 
-            this.cmbHora.FormattingEnabled = true;
-            this.cmbHora.Location = new System.Drawing.Point(14, 205);
-            this.cmbHora.Name = "cmbHora";
-            this.cmbHora.Size = new System.Drawing.Size(72, 21);
-            this.cmbHora.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 189);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Horarios disponibles:";
-            // 
-            // linkLimpiar
-            // 
-            this.linkLimpiar.AutoSize = true;
-            this.linkLimpiar.Location = new System.Drawing.Point(6, 245);
-            this.linkLimpiar.Name = "linkLimpiar";
-            this.linkLimpiar.Size = new System.Drawing.Size(80, 13);
-            this.linkLimpiar.TabIndex = 12;
-            this.linkLimpiar.TabStop = true;
-            this.linkLimpiar.Text = "Limpiar campos";
-            this.linkLimpiar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLimpiar_LinkClicked);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Ingresa nro de documento";
-            // 
-            // txtDocumento
-            // 
-            this.txtDocumento.Location = new System.Drawing.Point(12, 27);
-            this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 21;
-            this.txtDocumento.Focus();
-            // 
-            // btnAfiliado
-            // 
-            this.btnAfiliado.Location = new System.Drawing.Point(118, 25);
-            this.btnAfiliado.Name = "btnAfiliado";
-            this.btnAfiliado.Size = new System.Drawing.Size(75, 23);
-            this.btnAfiliado.TabIndex = 22;
-            this.btnAfiliado.Text = "Comprobar";
-            this.btnAfiliado.UseVisualStyleBackColor = true;
-            this.btnAfiliado.Click += new System.EventHandler(this.btnAfiliado_Click);
             // 
             // cmbFechas
             // 
@@ -181,7 +143,45 @@
             this.cmbFechas.Location = new System.Drawing.Point(12, 151);
             this.cmbFechas.Name = "cmbFechas";
             this.cmbFechas.Size = new System.Drawing.Size(164, 21);
-            this.cmbFechas.TabIndex = 23;
+            this.cmbFechas.TabIndex = 10;
+            // 
+            // btnFecha
+            // 
+            this.btnFecha.Location = new System.Drawing.Point(198, 151);
+            this.btnFecha.Name = "btnFecha";
+            this.btnFecha.Size = new System.Drawing.Size(96, 23);
+            this.btnFecha.TabIndex = 11;
+            this.btnFecha.Text = "Confirmar Fecha";
+            this.btnFecha.UseVisualStyleBackColor = true;
+            this.btnFecha.Click += new System.EventHandler(this.btnFecha_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 189);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Horarios disponibles:";
+            // 
+            // cmbHora
+            // 
+            this.cmbHora.FormattingEnabled = true;
+            this.cmbHora.Location = new System.Drawing.Point(14, 205);
+            this.cmbHora.Name = "cmbHora";
+            this.cmbHora.Size = new System.Drawing.Size(72, 21);
+            this.cmbHora.TabIndex = 13;
+            // 
+            // linkLimpiar
+            // 
+            this.linkLimpiar.AutoSize = true;
+            this.linkLimpiar.Location = new System.Drawing.Point(6, 245);
+            this.linkLimpiar.Name = "linkLimpiar";
+            this.linkLimpiar.Size = new System.Drawing.Size(80, 13);
+            this.linkLimpiar.TabIndex = 14;
+            this.linkLimpiar.TabStop = true;
+            this.linkLimpiar.Text = "Limpiar campos";
+            this.linkLimpiar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLimpiar_LinkClicked);
             // 
             // lblAfiliado
             // 
@@ -189,7 +189,7 @@
             this.lblAfiliado.Location = new System.Drawing.Point(16, 50);
             this.lblAfiliado.Name = "lblAfiliado";
             this.lblAfiliado.Size = new System.Drawing.Size(0, 13);
-            this.lblAfiliado.TabIndex = 24;
+            this.lblAfiliado.TabIndex = 16;
             this.lblAfiliado.Visible = false;
             // 
             // btnConfirmar
@@ -197,7 +197,7 @@
             this.btnConfirmar.Location = new System.Drawing.Point(297, 230);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 38);
-            this.btnConfirmar.TabIndex = 26;
+            this.btnConfirmar.TabIndex = 15;
             this.btnConfirmar.Text = "Confirmar Turno";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
