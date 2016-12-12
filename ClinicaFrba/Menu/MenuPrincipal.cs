@@ -106,7 +106,7 @@ namespace ClinicaFrba.Menu
 
         private void pedirTurnoToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Pedir_Turno pedir_turno = new Pedir_Turno();
+            Pedir_Turno pedir_turno = new Pedir_Turno(id_usuario);
             pedir_turno.MdiParent = this;
             pedir_turno.Show();
         }
