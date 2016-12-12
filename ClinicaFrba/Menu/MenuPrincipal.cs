@@ -15,6 +15,7 @@ using ClinicaFrba.Pedido_Turno;
 using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Registro_Resultado;
 using ClinicaFrba.Listados;
+using ClinicaFrba.Properties;
 
 namespace ClinicaFrba.Menu
 {
@@ -54,8 +55,11 @@ namespace ClinicaFrba.Menu
                             break;
                         case 4: // Cancelar Turno
                             this.cancelarAtenciónToolStripMenuItem.Visible = true;
+                            this.cancelarAtenciónPorAfiliadoToolStripMenuItem.Visible = true;
                             break;
                         case 5: // Cancelar dia
+                            this.cancelarAtenciónToolStripMenuItem.Visible = true;
+                            this.cancelarAtenciónPorToolStripMenuItem.Visible = true;
                             break;
                         case 6: // Comprar Bono
                             this.compraBonoToolStripMenuItem.Visible = true;
@@ -119,17 +123,35 @@ namespace ClinicaFrba.Menu
         }
 
         private void registrarResultadoDeConsultaToolStripMenuItem_Click(object sender, System.EventArgs e) {
-            Registrar_Resultado registro_resultado = new Registrar_Resultado(id_usuario, id_rol);
-            registro_resultado.MdiParent = this;
-            registro_resultado.Show();
+            int id_profesional = getIdProfesional(id_usuario);
+            if (id_profesional == 0) {
+                MessageBox.Show("Operación permitida únicamente para Profesionales.\nEste usuario no corresponde a un profesional.");
+            } else {
+                Registrar_Resultado registro_resultado = new Registrar_Resultado(id_profesional);
+                registro_resultado.MdiParent = this;
+                registro_resultado.Show();
+            }
+        }
+        
+        public int getIdProfesional(int id_usuario) {
+            SQL sql = new SQL();
+            String query = "SELECT p.ID_PROFESIONAL FROM [" + Settings.Default.SQL_Schema + "].USUARIO u " +
+                            "INNER JOIN [" + Settings.Default.SQL_Schema + "].PROFESIONAL p on u.NOMBRE = p.NRO_DOCUMENTO " +
+                            "WHERE u.NOMBRE NOT LIKE 'admin' AND u.ID_USUARIO = " + id_usuario + ";";
+            DataTable tabla = sql.ejecutarConsulta(query);
+            if (tabla.Rows.Count > 0) {
+                return int.Parse(tabla.Rows[0].ItemArray[0].ToString());
+            } else {
+                return 0;
+            }
         }
 
-        private void cancelarAtencionPorAdminToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Cancelar_Atencion.Cancelar_Atencion ca = new Cancelar_Atencion.Cancelar_Atencion();
-            ca.MdiParent = this;
-            ca.Show();
-        }
+        //private void cancelarAtencionPorAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Cancelar_Atencion.Cancelar_Atencion ca = new Cancelar_Atencion.Cancelar_Atencion();
+        //    ca.MdiParent = this;
+        //    ca.Show();
+        //}
 
         private void cancelarAtenciónPorAfiliadoToolStripMenuItem_Click(object sender, EventArgs e)
         {

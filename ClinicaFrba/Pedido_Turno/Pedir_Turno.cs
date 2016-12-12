@@ -15,9 +15,34 @@ namespace ClinicaFrba.Pedido_Turno
     public partial class Pedir_Turno : Form
     {
         private int id_afiliado { get; set; }
-        public Pedir_Turno()
+        public Pedir_Turno(int id_usuario)
         {
             InitializeComponent();
+            obtenerDocumentoUsuario(id_usuario);
+        }
+
+        private void obtenerDocumentoUsuario(int id_usuario)
+        {
+            SQL sql = new SQL();
+            List<Parametro> parametros = new List<Parametro>();
+
+            Parametro id_usuario_param = new Parametro("id_usuario", id_usuario);
+            parametros.Add(id_usuario_param);
+
+            DataTable tabla = sql.ejecutarSP("usp_obtener_afiliado_x_usuario", parametros);
+
+            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            {
+                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+            }
+            else if (tabla.Rows.Count > 0)
+            {
+                txtDocumento.Text = tabla.Rows[0].ItemArray[1].ToString();
+                txtDocumento.Enabled = false;
+                lblAfiliado.Text = tabla.Rows[0].ItemArray[4].ToString() + ", " + tabla.Rows[0].ItemArray[3].ToString();
+                lblAfiliado.Visible = true;
+                id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0].ToString());
+            }
         }
 
         private void btnAfiliado_Click(object sender, EventArgs e)
@@ -47,7 +72,7 @@ namespace ClinicaFrba.Pedido_Turno
                 {
                     id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
                     lblAfiliado.Visible = true;
-                    lblAfiliado.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString(); 
+                    lblAfiliado.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
                     inicializarEspecialidades();
                     inicializarProfesionales();
                 }
