@@ -15,9 +15,37 @@ namespace ClinicaFrba.Cancelar_Atencion
     public partial class Cancelar_Atencion_Medica : Form
     {
         private int id_profesional { get; set; }
-        public Cancelar_Atencion_Medica()
+        private int id_usuario { get; set; }
+        public Cancelar_Atencion_Medica(int id_usuario)
         {
             InitializeComponent();
+            obtenerDocumentoUsuario(id_usuario);
+        }
+
+        private void obtenerDocumentoUsuario(int id_usuario)
+        {
+            this.id_usuario = id_usuario;
+
+            SQL sql = new SQL();
+            List<Parametro> parametros = new List<Parametro>();
+
+            Parametro id_usuario_param = new Parametro("id_usuario", id_usuario);
+            parametros.Add(id_usuario_param);
+
+            DataTable tabla = sql.ejecutarSP("usp_obtener_profesional_x_usuario", parametros);
+
+            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            {
+                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+            }
+            else if (tabla.Rows.Count > 0)
+            {
+                txtDocumento.Text = tabla.Rows[0].ItemArray[1].ToString();
+                txtDocumento.Enabled = false;
+                lblProfesional.Text = tabla.Rows[0].ItemArray[4].ToString() + ", " + tabla.Rows[0].ItemArray[3].ToString();
+                lblProfesional.Visible = true;
+                id_profesional = Convert.ToInt32(tabla.Rows[0].ItemArray[0].ToString());
+            }
         }
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
@@ -55,6 +83,7 @@ namespace ClinicaFrba.Cancelar_Atencion
                 }
             }
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

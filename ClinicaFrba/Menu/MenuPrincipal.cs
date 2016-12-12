@@ -110,7 +110,7 @@ namespace ClinicaFrba.Menu
 
         private void pedirTurnoToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Pedir_Turno pedir_turno = new Pedir_Turno();
+            Pedir_Turno pedir_turno = new Pedir_Turno(id_usuario);
             pedir_turno.MdiParent = this;
             pedir_turno.Show();
         }
@@ -162,7 +162,7 @@ namespace ClinicaFrba.Menu
 
         private void cancelarAtenciónPorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cancelar_Atencion.Cancelar_Atencion_Medica ca = new Cancelar_Atencion.Cancelar_Atencion_Medica();
+            Cancelar_Atencion.Cancelar_Atencion_Medica ca = new Cancelar_Atencion.Cancelar_Atencion_Medica(id_usuario);
             ca.MdiParent = this;
             ca.Show();
         }

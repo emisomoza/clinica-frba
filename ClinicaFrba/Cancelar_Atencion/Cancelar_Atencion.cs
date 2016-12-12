@@ -19,7 +19,7 @@ namespace ClinicaFrba.Cancelar_Atencion
 
         private void btnMedica_Click(object sender, EventArgs e)
         {
-            Cancelar_Atencion_Medica cam = new Cancelar_Atencion_Medica();
+            Cancelar_Atencion_Medica cam = new Cancelar_Atencion_Medica(0);
             cam.ShowDialog();
         }
 
