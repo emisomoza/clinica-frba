@@ -163,7 +163,7 @@ namespace ClinicaFrba.Pedido_Turno
             {
                 MessageBox.Show("No hay turnos disponibles para el profesional elegido.");
             }
-            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
                 MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
             }
@@ -198,7 +198,7 @@ namespace ClinicaFrba.Pedido_Turno
             {
                 MessageBox.Show("No hay horarios disponibles para el día elegido.");
             }
-            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
             {
                 MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
             }
