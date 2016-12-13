@@ -1,4 +1,5 @@
 ﻿using ClinicaFrba.DB_Connection;
+using ClinicaFrba.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,8 @@ namespace ClinicaFrba.Registro_Llegada
             List<Parametro> parametros = new List<Parametro>();
             Parametro turno = new Parametro("nro_turno", nro_turno);
             parametros.Add(turno);
+            Parametro fecha = new Parametro("dia_actual", Settings.Default.Fecha_Sistema.ToShortDateString());
+            parametros.Add(fecha);
 
             DataTable tabla = sql.ejecutarSP("usp_registrar_llegada", parametros);
             if (tabla.Rows.Count > 0) {

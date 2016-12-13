@@ -43,11 +43,15 @@ namespace ClinicaFrba.Logueo
         }
 
         private void boton_aceptar_Click(object sender, EventArgs e) {
-            this.id_rol = int.Parse(roles.SelectedValue.ToString());
-            this.Hide();
-            MenuPrincipal mp = new MenuPrincipal(id_usuario, id_rol);
-            mp.ShowDialog();           
-            this.Close();
+            try {
+                this.id_rol = int.Parse(roles.SelectedValue.ToString());
+                this.Hide();
+                MenuPrincipal mp = new MenuPrincipal(id_usuario, id_rol);
+                mp.ShowDialog();
+                this.Close();
+            } catch { 
+                this.Close(); 
+            }
         }
     }
 }

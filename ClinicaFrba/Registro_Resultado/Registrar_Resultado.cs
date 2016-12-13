@@ -26,7 +26,8 @@ namespace ClinicaFrba.Registro_Resultado
         private void Registrar_Resultado_Load(object sender, EventArgs e)
         {
             String query = "SELECT * FROM [" + Settings.Default.SQL_Schema + "].fn_traer_turnos_profesional (" +
-                            id_profesional + ");";
+                            id_profesional + ", '" +
+                            Settings.Default.Fecha_Sistema.ToShortDateString() + "');";
             DataTable tabla = sql.ejecutarConsulta(query);
             dataGridView1.ReadOnly = true;
             dataGridView1.DataSource = tabla;
