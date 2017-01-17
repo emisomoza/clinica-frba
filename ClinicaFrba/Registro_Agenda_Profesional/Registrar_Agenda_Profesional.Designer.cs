@@ -1,4 +1,4 @@
-﻿namespace ClinicaFrba.Registrar_Agenda_Profesional
+﻿namespace ClinicaFrba.Registro_Agenda_Profesional
 {
     partial class Registrar_Agenda_Profesional
     {
@@ -120,9 +120,9 @@
             // 
             // btnRegistrarAgenda
             // 
-            this.btnRegistrarAgenda.Location = new System.Drawing.Point(572, 269);
+            this.btnRegistrarAgenda.Location = new System.Drawing.Point(500, 247);
             this.btnRegistrarAgenda.Name = "btnRegistrarAgenda";
-            this.btnRegistrarAgenda.Size = new System.Drawing.Size(75, 38);
+            this.btnRegistrarAgenda.Size = new System.Drawing.Size(107, 38);
             this.btnRegistrarAgenda.TabIndex = 9;
             this.btnRegistrarAgenda.Text = "Registrar Agenda";
             this.btnRegistrarAgenda.UseVisualStyleBackColor = true;
@@ -216,49 +216,49 @@
             // cmb1HD
             // 
             this.cmb1HD.FormattingEnabled = true;
-            this.cmb1HD.Location = new System.Drawing.Point(125, 134);
+            this.cmb1HD.Location = new System.Drawing.Point(104, 134);
             this.cmb1HD.Name = "cmb1HD";
-            this.cmb1HD.Size = new System.Drawing.Size(32, 21);
+            this.cmb1HD.Size = new System.Drawing.Size(40, 21);
             this.cmb1HD.TabIndex = 22;
             // 
             // cmb2HD
             // 
             this.cmb2HD.FormattingEnabled = true;
-            this.cmb2HD.Location = new System.Drawing.Point(125, 160);
+            this.cmb2HD.Location = new System.Drawing.Point(104, 160);
             this.cmb2HD.Name = "cmb2HD";
-            this.cmb2HD.Size = new System.Drawing.Size(32, 21);
+            this.cmb2HD.Size = new System.Drawing.Size(40, 21);
             this.cmb2HD.TabIndex = 23;
             // 
             // cmb3HD
             // 
             this.cmb3HD.FormattingEnabled = true;
-            this.cmb3HD.Location = new System.Drawing.Point(125, 186);
+            this.cmb3HD.Location = new System.Drawing.Point(104, 186);
             this.cmb3HD.Name = "cmb3HD";
-            this.cmb3HD.Size = new System.Drawing.Size(32, 21);
+            this.cmb3HD.Size = new System.Drawing.Size(40, 21);
             this.cmb3HD.TabIndex = 24;
             // 
             // cmb4HD
             // 
             this.cmb4HD.FormattingEnabled = true;
-            this.cmb4HD.Location = new System.Drawing.Point(125, 212);
+            this.cmb4HD.Location = new System.Drawing.Point(104, 212);
             this.cmb4HD.Name = "cmb4HD";
-            this.cmb4HD.Size = new System.Drawing.Size(32, 21);
+            this.cmb4HD.Size = new System.Drawing.Size(40, 21);
             this.cmb4HD.TabIndex = 25;
             // 
             // cmb5HD
             // 
             this.cmb5HD.FormattingEnabled = true;
-            this.cmb5HD.Location = new System.Drawing.Point(125, 238);
+            this.cmb5HD.Location = new System.Drawing.Point(104, 238);
             this.cmb5HD.Name = "cmb5HD";
-            this.cmb5HD.Size = new System.Drawing.Size(32, 21);
+            this.cmb5HD.Size = new System.Drawing.Size(40, 21);
             this.cmb5HD.TabIndex = 26;
             // 
             // cmb6HD
             // 
             this.cmb6HD.FormattingEnabled = true;
-            this.cmb6HD.Location = new System.Drawing.Point(125, 264);
+            this.cmb6HD.Location = new System.Drawing.Point(104, 264);
             this.cmb6HD.Name = "cmb6HD";
-            this.cmb6HD.Size = new System.Drawing.Size(32, 21);
+            this.cmb6HD.Size = new System.Drawing.Size(40, 21);
             this.cmb6HD.TabIndex = 27;
             // 
             // label10
@@ -275,7 +275,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(122, 109);
+            this.label11.Location = new System.Drawing.Point(101, 109);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 29;
@@ -285,7 +285,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(216, 109);
+            this.label12.Location = new System.Drawing.Point(203, 109);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 13);
             this.label12.TabIndex = 30;
@@ -294,49 +294,49 @@
             // cmb1MD
             // 
             this.cmb1MD.FormattingEnabled = true;
-            this.cmb1MD.Location = new System.Drawing.Point(163, 134);
+            this.cmb1MD.Location = new System.Drawing.Point(150, 134);
             this.cmb1MD.Name = "cmb1MD";
-            this.cmb1MD.Size = new System.Drawing.Size(32, 21);
+            this.cmb1MD.Size = new System.Drawing.Size(40, 21);
             this.cmb1MD.TabIndex = 31;
             // 
             // cmb2MD
             // 
             this.cmb2MD.FormattingEnabled = true;
-            this.cmb2MD.Location = new System.Drawing.Point(163, 160);
+            this.cmb2MD.Location = new System.Drawing.Point(150, 160);
             this.cmb2MD.Name = "cmb2MD";
-            this.cmb2MD.Size = new System.Drawing.Size(32, 21);
+            this.cmb2MD.Size = new System.Drawing.Size(40, 21);
             this.cmb2MD.TabIndex = 32;
             // 
             // cmb3MD
             // 
             this.cmb3MD.FormattingEnabled = true;
-            this.cmb3MD.Location = new System.Drawing.Point(163, 186);
+            this.cmb3MD.Location = new System.Drawing.Point(150, 186);
             this.cmb3MD.Name = "cmb3MD";
-            this.cmb3MD.Size = new System.Drawing.Size(32, 21);
+            this.cmb3MD.Size = new System.Drawing.Size(40, 21);
             this.cmb3MD.TabIndex = 33;
             // 
             // cmb4MD
             // 
             this.cmb4MD.FormattingEnabled = true;
-            this.cmb4MD.Location = new System.Drawing.Point(163, 212);
+            this.cmb4MD.Location = new System.Drawing.Point(150, 212);
             this.cmb4MD.Name = "cmb4MD";
-            this.cmb4MD.Size = new System.Drawing.Size(32, 21);
+            this.cmb4MD.Size = new System.Drawing.Size(40, 21);
             this.cmb4MD.TabIndex = 34;
             // 
             // cmb5MD
             // 
             this.cmb5MD.FormattingEnabled = true;
-            this.cmb5MD.Location = new System.Drawing.Point(163, 238);
+            this.cmb5MD.Location = new System.Drawing.Point(150, 238);
             this.cmb5MD.Name = "cmb5MD";
-            this.cmb5MD.Size = new System.Drawing.Size(32, 21);
+            this.cmb5MD.Size = new System.Drawing.Size(40, 21);
             this.cmb5MD.TabIndex = 35;
             // 
             // cmb6MD
             // 
             this.cmb6MD.FormattingEnabled = true;
-            this.cmb6MD.Location = new System.Drawing.Point(163, 264);
+            this.cmb6MD.Location = new System.Drawing.Point(150, 264);
             this.cmb6MD.Name = "cmb6MD";
-            this.cmb6MD.Size = new System.Drawing.Size(32, 21);
+            this.cmb6MD.Size = new System.Drawing.Size(40, 21);
             this.cmb6MD.TabIndex = 36;
             // 
             // cmbEspecialidades
@@ -403,103 +403,103 @@
             // cmb6MH
             // 
             this.cmb6MH.FormattingEnabled = true;
-            this.cmb6MH.Location = new System.Drawing.Point(257, 264);
+            this.cmb6MH.Location = new System.Drawing.Point(252, 264);
             this.cmb6MH.Name = "cmb6MH";
-            this.cmb6MH.Size = new System.Drawing.Size(32, 21);
+            this.cmb6MH.Size = new System.Drawing.Size(40, 21);
             this.cmb6MH.TabIndex = 55;
             // 
             // cmb5MH
             // 
             this.cmb5MH.FormattingEnabled = true;
-            this.cmb5MH.Location = new System.Drawing.Point(257, 238);
+            this.cmb5MH.Location = new System.Drawing.Point(252, 238);
             this.cmb5MH.Name = "cmb5MH";
-            this.cmb5MH.Size = new System.Drawing.Size(32, 21);
+            this.cmb5MH.Size = new System.Drawing.Size(40, 21);
             this.cmb5MH.TabIndex = 54;
             // 
             // cmb4MH
             // 
             this.cmb4MH.FormattingEnabled = true;
-            this.cmb4MH.Location = new System.Drawing.Point(257, 212);
+            this.cmb4MH.Location = new System.Drawing.Point(252, 212);
             this.cmb4MH.Name = "cmb4MH";
-            this.cmb4MH.Size = new System.Drawing.Size(32, 21);
+            this.cmb4MH.Size = new System.Drawing.Size(40, 21);
             this.cmb4MH.TabIndex = 53;
             // 
             // cmb3MH
             // 
             this.cmb3MH.FormattingEnabled = true;
-            this.cmb3MH.Location = new System.Drawing.Point(257, 186);
+            this.cmb3MH.Location = new System.Drawing.Point(252, 186);
             this.cmb3MH.Name = "cmb3MH";
-            this.cmb3MH.Size = new System.Drawing.Size(32, 21);
+            this.cmb3MH.Size = new System.Drawing.Size(40, 21);
             this.cmb3MH.TabIndex = 52;
             // 
             // cmb2MH
             // 
             this.cmb2MH.FormattingEnabled = true;
-            this.cmb2MH.Location = new System.Drawing.Point(257, 160);
+            this.cmb2MH.Location = new System.Drawing.Point(252, 160);
             this.cmb2MH.Name = "cmb2MH";
-            this.cmb2MH.Size = new System.Drawing.Size(32, 21);
+            this.cmb2MH.Size = new System.Drawing.Size(40, 21);
             this.cmb2MH.TabIndex = 51;
             // 
             // cmb1MH
             // 
             this.cmb1MH.FormattingEnabled = true;
-            this.cmb1MH.Location = new System.Drawing.Point(257, 134);
+            this.cmb1MH.Location = new System.Drawing.Point(252, 134);
             this.cmb1MH.Name = "cmb1MH";
-            this.cmb1MH.Size = new System.Drawing.Size(32, 21);
+            this.cmb1MH.Size = new System.Drawing.Size(40, 21);
             this.cmb1MH.TabIndex = 50;
             // 
             // cmb6HH
             // 
             this.cmb6HH.FormattingEnabled = true;
-            this.cmb6HH.Location = new System.Drawing.Point(219, 264);
+            this.cmb6HH.Location = new System.Drawing.Point(206, 264);
             this.cmb6HH.Name = "cmb6HH";
-            this.cmb6HH.Size = new System.Drawing.Size(32, 21);
+            this.cmb6HH.Size = new System.Drawing.Size(40, 21);
             this.cmb6HH.TabIndex = 49;
             // 
             // cmb5HH
             // 
             this.cmb5HH.FormattingEnabled = true;
-            this.cmb5HH.Location = new System.Drawing.Point(219, 238);
+            this.cmb5HH.Location = new System.Drawing.Point(206, 238);
             this.cmb5HH.Name = "cmb5HH";
-            this.cmb5HH.Size = new System.Drawing.Size(32, 21);
+            this.cmb5HH.Size = new System.Drawing.Size(40, 21);
             this.cmb5HH.TabIndex = 48;
             // 
             // cmb4HH
             // 
             this.cmb4HH.FormattingEnabled = true;
-            this.cmb4HH.Location = new System.Drawing.Point(219, 212);
+            this.cmb4HH.Location = new System.Drawing.Point(206, 212);
             this.cmb4HH.Name = "cmb4HH";
-            this.cmb4HH.Size = new System.Drawing.Size(32, 21);
+            this.cmb4HH.Size = new System.Drawing.Size(40, 21);
             this.cmb4HH.TabIndex = 47;
             // 
             // cmb3HH
             // 
             this.cmb3HH.FormattingEnabled = true;
-            this.cmb3HH.Location = new System.Drawing.Point(219, 186);
+            this.cmb3HH.Location = new System.Drawing.Point(206, 186);
             this.cmb3HH.Name = "cmb3HH";
-            this.cmb3HH.Size = new System.Drawing.Size(32, 21);
+            this.cmb3HH.Size = new System.Drawing.Size(40, 21);
             this.cmb3HH.TabIndex = 46;
             // 
             // cmb2HH
             // 
             this.cmb2HH.FormattingEnabled = true;
-            this.cmb2HH.Location = new System.Drawing.Point(219, 160);
+            this.cmb2HH.Location = new System.Drawing.Point(206, 160);
             this.cmb2HH.Name = "cmb2HH";
-            this.cmb2HH.Size = new System.Drawing.Size(32, 21);
+            this.cmb2HH.Size = new System.Drawing.Size(40, 21);
             this.cmb2HH.TabIndex = 45;
             // 
             // cmb1HH
             // 
             this.cmb1HH.FormattingEnabled = true;
-            this.cmb1HH.Location = new System.Drawing.Point(219, 134);
+            this.cmb1HH.Location = new System.Drawing.Point(206, 134);
             this.cmb1HH.Name = "cmb1HH";
-            this.cmb1HH.Size = new System.Drawing.Size(32, 21);
+            this.cmb1HH.Size = new System.Drawing.Size(40, 21);
             this.cmb1HH.TabIndex = 44;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(301, 137);
+            this.label17.Location = new System.Drawing.Point(299, 137);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 56;
@@ -508,7 +508,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(301, 163);
+            this.label18.Location = new System.Drawing.Point(299, 163);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(74, 13);
             this.label18.TabIndex = 57;
@@ -517,7 +517,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(301, 189);
+            this.label19.Location = new System.Drawing.Point(299, 189);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(74, 13);
             this.label19.TabIndex = 58;
@@ -526,7 +526,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(301, 215);
+            this.label20.Location = new System.Drawing.Point(299, 215);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(74, 13);
             this.label20.TabIndex = 59;
@@ -535,7 +535,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(301, 241);
+            this.label21.Location = new System.Drawing.Point(299, 241);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 13);
             this.label21.TabIndex = 60;
@@ -544,7 +544,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(301, 267);
+            this.label22.Location = new System.Drawing.Point(299, 267);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(80, 13);
             this.label22.TabIndex = 61;
@@ -610,7 +610,7 @@
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label1);
             this.Name = "Registrar_Agenda_Profesional";
-            this.Text = "Registrar_Agenda_Profesional";
+            this.Text = "Registrar Agenda Médica";
             this.ResumeLayout(false);
             this.PerformLayout();
 

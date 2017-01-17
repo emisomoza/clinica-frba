@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.DB_Connection;
 
-namespace ClinicaFrba.Registrar_Agenda_Profesional
+namespace ClinicaFrba.Registro_Agenda_Profesional
 {
     public partial class Registrar_Agenda_Profesional : Form
     {
@@ -130,41 +130,41 @@ namespace ClinicaFrba.Registrar_Agenda_Profesional
             this.cmb6HH.SelectedIndex = 0;
 
             cmb1MD.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb1MD.SelectedIndex = 0;
             cmb2MD.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb2MD.SelectedIndex = 0;
             cmb3MD.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb3MD.SelectedIndex = 0;
             cmb4MD.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb4MD.SelectedIndex = 0;
             cmb5MD.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb5MD.SelectedIndex = 0;
             cmb6MD.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb6MD.SelectedIndex = 0;
 
             cmb1MH.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb1MH.SelectedIndex = 0;
             cmb2MH.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb2MH.SelectedIndex = 0;
             cmb3MH.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb3MH.SelectedIndex = 0;
             cmb4MH.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb4MH.SelectedIndex = 0;
             cmb5MH.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb5MH.SelectedIndex = 0;
             cmb6MH.Items.AddRange(new object[] {
-                "00","30"});
+                '-', "00","30"});
             this.cmb6MH.SelectedIndex = 0;
         }
     }

@@ -39,6 +39,7 @@ namespace ClinicaFrba.Menu
             this.cancelarAtenciónPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraBonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verEstadísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarAgendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedirTurnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarLlegadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarResultadoDeConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +53,7 @@ namespace ClinicaFrba.Menu
             this.cancelarAtenciónToolStripMenuItem,
             this.compraBonoToolStripMenuItem,
             this.verEstadísticasToolStripMenuItem,
+            this.registrarAgendaToolStripMenuItem,
             this.pedirTurnoToolStripMenuItem,
             this.registrarLlegadaToolStripMenuItem,
             this.registrarResultadoDeConsultaToolStripMenuItem});
@@ -138,6 +140,14 @@ namespace ClinicaFrba.Menu
             this.verEstadísticasToolStripMenuItem.Visible = false;
             this.verEstadísticasToolStripMenuItem.Click += new System.EventHandler(this.verEstadisticasToolStripMenuItem_Click);
             // 
+            // registrarAgendaToolStripMenuItem
+            // 
+            this.registrarAgendaToolStripMenuItem.Name = "registrarAgendaToolStripMenuItem";
+            this.registrarAgendaToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.registrarAgendaToolStripMenuItem.Text = "Registrar Agenda Médica";
+            this.registrarAgendaToolStripMenuItem.Visible = false;
+            this.registrarAgendaToolStripMenuItem.Click += new System.EventHandler(this.registrarAgendaToolStripMenuItem_Click);
+            // 
             // pedirTurnoToolStripMenuItem
             // 
             this.pedirTurnoToolStripMenuItem.Name = "pedirTurnoToolStripMenuItem";
@@ -187,6 +197,7 @@ namespace ClinicaFrba.Menu
         private System.Windows.Forms.ToolStripMenuItem cancelarAtenciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compraBonoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verEstadísticasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarAgendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedirTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarLlegadaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolToolStripMenuItem;
@@ -199,7 +210,6 @@ namespace ClinicaFrba.Menu
         /* Que hacer con estas funcionalidades?
         Sacar Turno (admin)
         Cancelar dia
-        Modificar Plan_Afiliado
         */
     }
 }

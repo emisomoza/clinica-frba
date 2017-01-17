@@ -16,6 +16,7 @@ using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Registro_Resultado;
 using ClinicaFrba.Listados;
 using ClinicaFrba.Properties;
+using ClinicaFrba.Registro_Agenda_Profesional;
 
 namespace ClinicaFrba.Menu
 {
@@ -77,6 +78,9 @@ namespace ClinicaFrba.Menu
                         case 10: // Consultar Estadísticas
                             this.verEstadísticasToolStripMenuItem.Visible = true;
                             break;
+                        case 11: // Registrar Agenda Médica
+                            this.registrarAgendaToolStripMenuItem.Visible = true;
+                            break;
                         default:
                             break;
                     }
@@ -106,6 +110,13 @@ namespace ClinicaFrba.Menu
             Registrar_Llegada registro_llegada = new Registrar_Llegada();
             registro_llegada.MdiParent = this;
             registro_llegada.Show();
+        }
+
+        private void registrarAgendaToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Registrar_Agenda_Profesional registrar_agenda = new Registrar_Agenda_Profesional();
+            registrar_agenda.MdiParent = this;
+            registrar_agenda.Show();
         }
 
         private void pedirTurnoToolStripMenuItem_Click(object sender, System.EventArgs e)
