@@ -57,7 +57,81 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void btnRegistrarAgenda_Click(object sender, EventArgs e)
         {
-
+            Int32 cantHoras = 0;
+            if (cmb1HD.SelectedItem.Equals('-') && cmb1HH.SelectedItem.Equals('-')
+                && cmb2HD.SelectedItem.Equals('-') && cmb2HH.SelectedItem.Equals('-')
+                && cmb3HD.SelectedItem.Equals('-') && cmb3HH.SelectedItem.Equals('-')
+                && cmb4HD.SelectedItem.Equals('-') && cmb4HH.SelectedItem.Equals('-')
+                && cmb5HD.SelectedItem.Equals('-') && cmb5HH.SelectedItem.Equals('-')
+                && cmb6HD.SelectedItem.Equals('-') && cmb6HH.SelectedItem.Equals('-'))
+            {
+                MessageBox.Show("Se debe elegir al menos una hora desde y hasta.");
+            }
+            else if (dtpDesde.Value > dtpHasta.Value)
+            {
+                MessageBox.Show("La fecha desde debe ser menor o igual que la fecha hasta.");
+            }
+            else if (cantHoras > 48)
+            {
+                MessageBox.Show("La cantidad de horas semanales debe ser menor o igual a 48.");
+            }
+            else
+            {
+                if ((cmb1HD.SelectedItem.Equals('-') || cmb1HH.SelectedItem.Equals('-'))
+                    && !(cmb1HD.SelectedItem.Equals('-') && cmb1HH.SelectedItem.Equals('-')))
+                {
+                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                }
+                else if (!cmb1HD.SelectedItem.Equals('-') && !cmb1HH.SelectedItem.Equals('-'))
+                {
+                    MessageBox.Show("Lunes ok");
+                }
+                if ((cmb2HD.SelectedItem.Equals('-') || cmb2HH.SelectedItem.Equals('-'))
+                    && !(cmb2HD.SelectedItem.Equals('-') && cmb2HH.SelectedItem.Equals('-')))
+                {
+                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                }
+                else if (!cmb2HD.SelectedItem.Equals('-') && !cmb2HH.SelectedItem.Equals('-'))
+                {
+                    MessageBox.Show("Martes ok");
+                }
+                if ((cmb3HD.SelectedItem.Equals('-') || cmb3HH.SelectedItem.Equals('-'))
+                    && !(cmb3HD.SelectedItem.Equals('-') && cmb3HH.SelectedItem.Equals('-')))
+                {
+                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                }
+                else if (!cmb3HD.SelectedItem.Equals('-') && !cmb3HH.SelectedItem.Equals('-'))
+                {
+                    MessageBox.Show("Miercoles ok");
+                }
+                if ((cmb4HD.SelectedItem.Equals('-') || cmb4HH.SelectedItem.Equals('-'))
+                    && !(cmb4HD.SelectedItem.Equals('-') && cmb4HH.SelectedItem.Equals('-')))
+                {
+                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                }
+                else if (!cmb4HD.SelectedItem.Equals('-') && !cmb4HH.SelectedItem.Equals('-'))
+                {
+                    MessageBox.Show("Jueves ok");
+                }
+                if ((cmb5HD.SelectedItem.Equals('-') || cmb5HH.SelectedItem.Equals('-'))
+                    && !(cmb5HD.SelectedItem.Equals('-') && cmb5HH.SelectedItem.Equals('-')))
+                {
+                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                }
+                else if (!cmb5HD.SelectedItem.Equals('-') && !cmb5HH.SelectedItem.Equals('-'))
+                {
+                    MessageBox.Show("Viernes ok");
+                }
+                if ((cmb6HD.SelectedItem.Equals('-') || cmb6HH.SelectedItem.Equals('-'))
+                    && !(cmb6HD.SelectedItem.Equals('-') && cmb6HH.SelectedItem.Equals('-')))
+                {
+                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                }
+                else if (!cmb6HD.SelectedItem.Equals('-') && !cmb6HH.SelectedItem.Equals('-'))
+                {
+                    MessageBox.Show("Sabado ok");
+                }
+            }
         }
 
         private void linkCleanAfiliado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -130,41 +204,41 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
             this.cmb6HH.SelectedIndex = 0;
 
             cmb1MD.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb1MD.SelectedIndex = 0;
             cmb2MD.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb2MD.SelectedIndex = 0;
             cmb3MD.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb3MD.SelectedIndex = 0;
             cmb4MD.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb4MD.SelectedIndex = 0;
             cmb5MD.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb5MD.SelectedIndex = 0;
             cmb6MD.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb6MD.SelectedIndex = 0;
 
             cmb1MH.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb1MH.SelectedIndex = 0;
             cmb2MH.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb2MH.SelectedIndex = 0;
             cmb3MH.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb3MH.SelectedIndex = 0;
             cmb4MH.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb4MH.SelectedIndex = 0;
             cmb5MH.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb5MH.SelectedIndex = 0;
             cmb6MH.Items.AddRange(new object[] {
-                '-', "00","30"});
+                "00","30"});
             this.cmb6MH.SelectedIndex = 0;
         }
     }

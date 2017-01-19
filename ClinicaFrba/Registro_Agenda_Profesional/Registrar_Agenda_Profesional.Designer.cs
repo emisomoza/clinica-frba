@@ -62,8 +62,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.cmb6MH = new System.Windows.Forms.ComboBox();
             this.cmb5MH = new System.Windows.Forms.ComboBox();
             this.cmb4MH = new System.Windows.Forms.ComboBox();
@@ -386,19 +386,19 @@
             this.label16.TabIndex = 41;
             this.label16.Text = "Hasta";
             // 
-            // dateTimePicker1
+            // dtpDesde
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(449, 131);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 42;
+            this.dtpDesde.Location = new System.Drawing.Point(449, 131);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpDesde.TabIndex = 42;
             // 
-            // dateTimePicker2
+            // dtpHasta
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(449, 189);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 43;
+            this.dtpHasta.Location = new System.Drawing.Point(449, 189);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpHasta.TabIndex = 43;
             // 
             // cmb6MH
             // 
@@ -573,8 +573,8 @@
             this.Controls.Add(this.cmb3HH);
             this.Controls.Add(this.cmb2HH);
             this.Controls.Add(this.cmb1HH);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpHasta);
+            this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -652,8 +652,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.ComboBox cmb6MH;
         private System.Windows.Forms.ComboBox cmb5MH;
         private System.Windows.Forms.ComboBox cmb4MH;
