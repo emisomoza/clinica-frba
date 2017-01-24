@@ -57,81 +57,142 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void btnRegistrarAgenda_Click(object sender, EventArgs e)
         {
-            Int32 cantHoras = 0;
-            if (cmb1HD.SelectedItem.Equals('-') && cmb1HH.SelectedItem.Equals('-')
-                && cmb2HD.SelectedItem.Equals('-') && cmb2HH.SelectedItem.Equals('-')
-                && cmb3HD.SelectedItem.Equals('-') && cmb3HH.SelectedItem.Equals('-')
-                && cmb4HD.SelectedItem.Equals('-') && cmb4HH.SelectedItem.Equals('-')
-                && cmb5HD.SelectedItem.Equals('-') && cmb5HH.SelectedItem.Equals('-')
-                && cmb6HD.SelectedItem.Equals('-') && cmb6HH.SelectedItem.Equals('-'))
-            {
-                MessageBox.Show("Se debe elegir al menos una hora desde y hasta.");
-            }
-            else if (dtpDesde.Value > dtpHasta.Value)
+            double cantHoras = 0;
+            if (dtpDesde.Value.CompareTo(dtpHasta.Value) > 0)
             {
                 MessageBox.Show("La fecha desde debe ser menor o igual que la fecha hasta.");
             }
-            else if (cantHoras > 48)
-            {
-                MessageBox.Show("La cantidad de horas semanales debe ser menor o igual a 48.");
-            }
             else
             {
-                if ((cmb1HD.SelectedItem.Equals('-') || cmb1HH.SelectedItem.Equals('-'))
-                    && !(cmb1HD.SelectedItem.Equals('-') && cmb1HH.SelectedItem.Equals('-')))
+                if (cmb1HD.SelectedItem.Equals('-')
+                    && cmb2HD.SelectedItem.Equals('-')
+                    && cmb3HD.SelectedItem.Equals('-')
+                    && cmb4HD.SelectedItem.Equals('-')
+                    && cmb5HD.SelectedItem.Equals('-')
+                    && cmb6HD.SelectedItem.Equals('-'))
                 {
-                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
+                    MessageBox.Show("Se debe elegir al menos una hora desde y hasta.");
                 }
-                else if (!cmb1HD.SelectedItem.Equals('-') && !cmb1HH.SelectedItem.Equals('-'))
+                else
                 {
-                    MessageBox.Show("Lunes ok");
-                }
-                if ((cmb2HD.SelectedItem.Equals('-') || cmb2HH.SelectedItem.Equals('-'))
-                    && !(cmb2HD.SelectedItem.Equals('-') && cmb2HH.SelectedItem.Equals('-')))
-                {
-                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
-                }
-                else if (!cmb2HD.SelectedItem.Equals('-') && !cmb2HH.SelectedItem.Equals('-'))
-                {
-                    MessageBox.Show("Martes ok");
-                }
-                if ((cmb3HD.SelectedItem.Equals('-') || cmb3HH.SelectedItem.Equals('-'))
-                    && !(cmb3HD.SelectedItem.Equals('-') && cmb3HH.SelectedItem.Equals('-')))
-                {
-                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
-                }
-                else if (!cmb3HD.SelectedItem.Equals('-') && !cmb3HH.SelectedItem.Equals('-'))
-                {
-                    MessageBox.Show("Miercoles ok");
-                }
-                if ((cmb4HD.SelectedItem.Equals('-') || cmb4HH.SelectedItem.Equals('-'))
-                    && !(cmb4HD.SelectedItem.Equals('-') && cmb4HH.SelectedItem.Equals('-')))
-                {
-                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
-                }
-                else if (!cmb4HD.SelectedItem.Equals('-') && !cmb4HH.SelectedItem.Equals('-'))
-                {
-                    MessageBox.Show("Jueves ok");
-                }
-                if ((cmb5HD.SelectedItem.Equals('-') || cmb5HH.SelectedItem.Equals('-'))
-                    && !(cmb5HD.SelectedItem.Equals('-') && cmb5HH.SelectedItem.Equals('-')))
-                {
-                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
-                }
-                else if (!cmb5HD.SelectedItem.Equals('-') && !cmb5HH.SelectedItem.Equals('-'))
-                {
-                    MessageBox.Show("Viernes ok");
-                }
-                if ((cmb6HD.SelectedItem.Equals('-') || cmb6HH.SelectedItem.Equals('-'))
-                    && !(cmb6HD.SelectedItem.Equals('-') && cmb6HH.SelectedItem.Equals('-')))
-                {
-                    MessageBox.Show("Debe elegir tanto la hora desde como la hora hasta.");
-                }
-                else if (!cmb6HD.SelectedItem.Equals('-') && !cmb6HH.SelectedItem.Equals('-'))
-                {
-                    MessageBox.Show("Sabado ok");
+                    cantHoras = calcularHoras();
+                    if (cantHoras > 48)
+                    {
+                        MessageBox.Show("La cantidad de horas semanales debe ser menor o igual a 48.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(cantHoras.ToString());
+                        
+                        // Llamar al SP que guarda las horas
+                    }
                 }
             }
+        }
+
+        private double calcularHoras() {
+            double acum = 0;
+            int min_desde;
+            int min_hasta;
+            if (!cmb1HD.SelectedItem.Equals('-')) {
+                min_hasta = int.Parse(cmb1MH.SelectedItem.ToString());
+                min_desde = int.Parse(cmb1MD.SelectedItem.ToString());
+                acum = acum + int.Parse(cmb1HH.SelectedItem.ToString()) - int.Parse(cmb1HD.SelectedItem.ToString());
+                if (min_desde < min_hasta) {
+                    acum = acum + 0.5;
+                }
+                else {
+                    if (min_desde > min_hasta) {
+                        acum = acum - 0.5;
+                    }
+                }
+            }
+            if (!cmb2HD.SelectedItem.Equals('-'))
+            {
+                min_hasta = int.Parse(cmb2MH.SelectedItem.ToString());
+                min_desde = int.Parse(cmb2MD.SelectedItem.ToString());
+                acum = acum + int.Parse(cmb2HH.SelectedItem.ToString()) - int.Parse(cmb2HD.SelectedItem.ToString());
+                if (min_desde < min_hasta)
+                {
+                    acum = acum + 0.5;
+                }
+                else
+                {
+                    if (min_desde > min_hasta)
+                    {
+                        acum = acum - 0.5;
+                    }
+                }
+            }
+            if (!cmb3HD.SelectedItem.Equals('-'))
+            {
+                min_hasta = int.Parse(cmb3MH.SelectedItem.ToString());
+                min_desde = int.Parse(cmb3MD.SelectedItem.ToString());
+                acum = acum + int.Parse(cmb3HH.SelectedItem.ToString()) - int.Parse(cmb3HD.SelectedItem.ToString());
+                if (min_desde < min_hasta)
+                {
+                    acum = acum + 0.5;
+                }
+                else
+                {
+                    if (min_desde > min_hasta)
+                    {
+                        acum = acum - 0.5;
+                    }
+                }
+            }
+            if (!cmb4HD.SelectedItem.Equals('-'))
+            {
+                min_hasta = int.Parse(cmb4MH.SelectedItem.ToString());
+                min_desde = int.Parse(cmb4MD.SelectedItem.ToString());
+                acum = acum + int.Parse(cmb4HH.SelectedItem.ToString()) - int.Parse(cmb4HD.SelectedItem.ToString());
+                if (min_desde < min_hasta)
+                {
+                    acum = acum + 0.5;
+                }
+                else
+                {
+                    if (min_desde > min_hasta)
+                    {
+                        acum = acum - 0.5;
+                    }
+                }
+            }
+            if (!cmb5HD.SelectedItem.Equals('-'))
+            {
+                min_hasta = int.Parse(cmb5MH.SelectedItem.ToString());
+                min_desde = int.Parse(cmb5MD.SelectedItem.ToString());
+                acum = acum + int.Parse(cmb5HH.SelectedItem.ToString()) - int.Parse(cmb5HD.SelectedItem.ToString());
+                if (min_desde < min_hasta)
+                {
+                    acum = acum + 0.5;
+                }
+                else
+                {
+                    if (min_desde > min_hasta)
+                    {
+                        acum = acum - 0.5;
+                    }
+                }
+            }
+            if (!cmb6HD.SelectedItem.Equals('-'))
+            {
+                min_hasta = int.Parse(cmb6MH.SelectedItem.ToString());
+                min_desde = int.Parse(cmb6MD.SelectedItem.ToString());
+                acum = acum + int.Parse(cmb6HH.SelectedItem.ToString()) - int.Parse(cmb6HD.SelectedItem.ToString());
+                if (min_desde < min_hasta)
+                {
+                    acum = acum + 0.5;
+                }
+                else
+                {
+                    if (min_desde > min_hasta)
+                    {
+                        acum = acum - 0.5;
+                    }
+                }
+            }
+            return acum;
         }
 
         private void linkCleanAfiliado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -165,81 +226,190 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void inicializarCombos()
         {
-            cmb1HD.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19});
+            cmb1HD.Items.Clear();
+            cmb2HD.Items.Clear();
+            cmb3HD.Items.Clear();
+            cmb4HD.Items.Clear();
+            cmb5HD.Items.Clear();
+            cmb6HD.Items.Clear();
+            object[] combo_semanal = new object[] { '-', 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+            cmb1HD.Items.AddRange(combo_semanal);
             this.cmb1HD.SelectedIndex = 0;
-            cmb2HD.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19});
+            cmb2HD.Items.AddRange(combo_semanal);
             this.cmb2HD.SelectedIndex = 0;
-            cmb3HD.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19});
+            cmb3HD.Items.AddRange(combo_semanal);
             this.cmb3HD.SelectedIndex = 0;
-            cmb4HD.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19});
+            cmb4HD.Items.AddRange(combo_semanal);
             this.cmb4HD.SelectedIndex = 0;
-            cmb5HD.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19});
+            cmb5HD.Items.AddRange(combo_semanal);
             this.cmb5HD.SelectedIndex = 0;
-            cmb6HD.Items.AddRange(new object[] {
-                '-',10,11,12,13,14});
+            cmb6HD.Items.AddRange(new object[] {'-',10,11,12,13,14});
             this.cmb6HD.SelectedIndex = 0;
-
-            cmb1HH.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19,20});
-            this.cmb1HH.SelectedIndex = 0;
-            cmb2HH.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19,20});
-            this.cmb2HH.SelectedIndex = 0;
-            cmb3HH.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19,20});
-            this.cmb3HH.SelectedIndex = 0;
-            cmb4HH.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19,20});
-            this.cmb4HH.SelectedIndex = 0;
-            cmb5HH.Items.AddRange(new object[] {
-                '-',7,8,9,10,11,12,13,14,15,16,17,18,19,20});
-            this.cmb5HH.SelectedIndex = 0;
-            cmb6HH.Items.AddRange(new object[] {
-                '-',10,11,12,13,14,15});
-            this.cmb6HH.SelectedIndex = 0;
-
-            cmb1MD.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb1MD.SelectedIndex = 0;
-            cmb2MD.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb2MD.SelectedIndex = 0;
-            cmb3MD.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb3MD.SelectedIndex = 0;
-            cmb4MD.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb4MD.SelectedIndex = 0;
-            cmb5MD.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb5MD.SelectedIndex = 0;
-            cmb6MD.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb6MD.SelectedIndex = 0;
-
-            cmb1MH.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb1MH.SelectedIndex = 0;
-            cmb2MH.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb2MH.SelectedIndex = 0;
-            cmb3MH.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb3MH.SelectedIndex = 0;
-            cmb4MH.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb4MH.SelectedIndex = 0;
-            cmb5MH.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb5MH.SelectedIndex = 0;
-            cmb6MH.Items.AddRange(new object[] {
-                "00","30"});
-            this.cmb6MH.SelectedIndex = 0;
         }
+
+        private void inicalizarCombosDeMinutosDesde(Object hora_desde, ComboBox cmb)
+        {
+            cmb.Items.Clear();
+            if (hora_desde.ToString().Equals("-"))
+            {
+                cmb.Items.AddRange(new object[] { "-" });
+            }
+            else
+            {
+                cmb.Items.AddRange(new object[] { "00", "30" });
+            }
+            cmb.SelectedIndex = 0;
+        }
+
+        public void inicializarCombosDeHoraHasta(Object hora_desde, Object minutos_desde, ComboBox cmb_HH, int max)
+        {
+            cmb_HH.Items.Clear();
+            if (hora_desde.ToString().Equals("-")){
+                cmb_HH.Items.AddRange(new object[] { "-" });
+            } else {
+                int i = int.Parse(hora_desde.ToString());
+                if (minutos_desde.ToString().Equals("30"))
+                {   
+                    i++;
+                }
+                for (; i <= max; i++) {
+                    cmb_HH.Items.AddRange(new object[] { i });
+                }
+            }
+            cmb_HH.SelectedIndex = 0;
+        }
+
+        private void inicalizarCombosDeMinutosHasta(Object hora_desde, Object hora_hasta, ComboBox cmb, String max)
+        {
+            cmb.Items.Clear();
+            if (hora_desde.ToString().Equals("-"))
+            {
+                cmb.Items.AddRange(new object[] {"-"});
+            } else {
+                cmb.Items.AddRange(new object[] { "00" });
+                if (hora_desde.ToString().Equals(hora_hasta.ToString()))
+                {
+                    cmb.Items.Clear();
+                    cmb.Items.AddRange(new object[] { "30" });
+                }
+                else
+                {
+                    if (!hora_hasta.ToString().Equals(max))
+                    {
+                        cmb.Items.AddRange(new object[] { "30" });
+                    }
+                }
+            }
+            cmb.SelectedIndex = 0;
+        }
+
+        private void cmb1HD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosDesde(this.cmb1HD.SelectedItem, this.cmb1MD);
+            inicializarCombosDeHoraHasta(this.cmb1HD.SelectedItem, this.cmb1MD.SelectedItem, this.cmb1HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb1HD.SelectedItem, this.cmb1HH.SelectedItem, this.cmb1MH, "20");
+        }
+
+        private void cmb1MD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicializarCombosDeHoraHasta(this.cmb1HD.SelectedItem, this.cmb1MD.SelectedItem, this.cmb1HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb1HD.SelectedItem, this.cmb1HH.SelectedItem, this.cmb1MH, "20");
+        }
+
+        private void cmb1HH_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosHasta(this.cmb1HD.SelectedItem, this.cmb1HH.SelectedItem, this.cmb1MH, "20");
+        }
+
+        private void cmb2HD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosDesde(this.cmb2HD.SelectedItem, this.cmb2MD);
+            inicializarCombosDeHoraHasta(this.cmb2HD.SelectedItem, this.cmb2MD.SelectedItem, this.cmb2HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb2HD.SelectedItem, this.cmb2HH.SelectedItem, this.cmb2MH, "20");
+        }
+
+        private void cmb2MD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicializarCombosDeHoraHasta(this.cmb2HD.SelectedItem, this.cmb2MD.SelectedItem, this.cmb2HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb2HD.SelectedItem, this.cmb2HH.SelectedItem, this.cmb2MH, "20");
+        }
+
+        private void cmb2HH_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosHasta(this.cmb2HH.SelectedItem, this.cmb2HD, this.cmb2MH, "20");
+        }
+
+        private void cmb3HD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosDesde(this.cmb3HD.SelectedItem, this.cmb3MD);
+            inicializarCombosDeHoraHasta(this.cmb3HD.SelectedItem, this.cmb3MD.SelectedItem, this.cmb3HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb3HD.SelectedItem, this.cmb3HH.SelectedItem, this.cmb3MH, "20");
+        }
+
+        private void cmb3MD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicializarCombosDeHoraHasta(this.cmb3HD.SelectedItem, this.cmb3MD.SelectedItem, this.cmb3HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb3HD.SelectedItem, this.cmb3HH.SelectedItem, this.cmb3MH, "20");
+        }
+
+        private void cmb3HH_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosHasta(this.cmb3HD.SelectedItem, this.cmb3HH.SelectedItem, this.cmb3MH, "20");
+        }
+
+        private void cmb4HD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosDesde(this.cmb4HD.SelectedItem, this.cmb4MD);
+            inicializarCombosDeHoraHasta(this.cmb4HD.SelectedItem, this.cmb4MD.SelectedItem, this.cmb4HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb4HD.SelectedItem, this.cmb4HH.SelectedItem, this.cmb4MH, "20");
+        }
+
+        private void cmb4MD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicializarCombosDeHoraHasta(this.cmb4HD.SelectedItem, this.cmb4MD.SelectedItem, this.cmb4HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb4HD.SelectedItem, this.cmb4HH.SelectedItem, this.cmb4MH, "20");
+        }
+
+        private void cmb4HH_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosHasta(this.cmb4HD.SelectedItem, this.cmb4HH.SelectedItem, this.cmb4MH, "20");
+        }
+
+        private void cmb5HD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosDesde(this.cmb5HD.SelectedItem, this.cmb5MD);
+            inicializarCombosDeHoraHasta(this.cmb5HD.SelectedItem, this.cmb5MD.SelectedItem, this.cmb5HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb5HD.SelectedItem, this.cmb5HH.SelectedItem, this.cmb5MH, "20");
+        }
+
+        private void cmb5MD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicializarCombosDeHoraHasta(this.cmb5HD.SelectedItem, this.cmb5MD.SelectedItem, this.cmb5HH, 20);
+            inicalizarCombosDeMinutosHasta(this.cmb5HD.SelectedItem, this.cmb5HH.SelectedItem, this.cmb5MH, "20");
+        }
+
+        private void cmb5HH_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosHasta(this.cmb5HD.SelectedItem, this.cmb5HH.SelectedItem, this.cmb5MH, "20");
+        }
+
+        private void cmb6HD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosDesde(this.cmb6HD.SelectedItem, this.cmb6MD);
+            inicializarCombosDeHoraHasta(this.cmb6HD.SelectedItem, this.cmb6MD.SelectedItem, this.cmb6HH, 15);
+            inicalizarCombosDeMinutosHasta(this.cmb6HD.SelectedItem, this.cmb6HH.SelectedItem, this.cmb6MH, "15");
+        }
+
+        private void cmb6MD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicializarCombosDeHoraHasta(this.cmb6HD.SelectedItem, this.cmb6MD.SelectedItem, this.cmb6HH, 15);
+            inicalizarCombosDeMinutosHasta(this.cmb6HD.SelectedItem, this.cmb6HH.SelectedItem, this.cmb6MH, "15");
+        }
+
+        private void cmb6HH_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicalizarCombosDeMinutosHasta(this.cmb6HD.SelectedItem, this.cmb6HH.SelectedItem, this.cmb6MH, "15");
+        }
+
     }
 }

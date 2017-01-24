@@ -220,6 +220,7 @@
             this.cmb1HD.Name = "cmb1HD";
             this.cmb1HD.Size = new System.Drawing.Size(40, 21);
             this.cmb1HD.TabIndex = 22;
+            this.cmb1HD.SelectionChangeCommitted += new System.EventHandler(this.cmb1HD_SelectionChangeCommitted);
             // 
             // cmb2HD
             // 
@@ -228,6 +229,7 @@
             this.cmb2HD.Name = "cmb2HD";
             this.cmb2HD.Size = new System.Drawing.Size(40, 21);
             this.cmb2HD.TabIndex = 23;
+            this.cmb2HD.SelectionChangeCommitted += new System.EventHandler(this.cmb2HD_SelectionChangeCommitted);
             // 
             // cmb3HD
             // 
@@ -236,6 +238,7 @@
             this.cmb3HD.Name = "cmb3HD";
             this.cmb3HD.Size = new System.Drawing.Size(40, 21);
             this.cmb3HD.TabIndex = 24;
+            this.cmb3HD.SelectionChangeCommitted += new System.EventHandler(this.cmb3HD_SelectionChangeCommitted);
             // 
             // cmb4HD
             // 
@@ -244,6 +247,7 @@
             this.cmb4HD.Name = "cmb4HD";
             this.cmb4HD.Size = new System.Drawing.Size(40, 21);
             this.cmb4HD.TabIndex = 25;
+            this.cmb4HD.SelectionChangeCommitted += new System.EventHandler(this.cmb4HD_SelectionChangeCommitted);
             // 
             // cmb5HD
             // 
@@ -252,6 +256,7 @@
             this.cmb5HD.Name = "cmb5HD";
             this.cmb5HD.Size = new System.Drawing.Size(40, 21);
             this.cmb5HD.TabIndex = 26;
+            this.cmb5HD.SelectionChangeCommitted += new System.EventHandler(this.cmb5HD_SelectionChangeCommitted);
             // 
             // cmb6HD
             // 
@@ -260,6 +265,7 @@
             this.cmb6HD.Name = "cmb6HD";
             this.cmb6HD.Size = new System.Drawing.Size(40, 21);
             this.cmb6HD.TabIndex = 27;
+            this.cmb6HD.SelectionChangeCommitted += new System.EventHandler(this.cmb6HD_SelectionChangeCommitted);
             // 
             // label10
             // 
@@ -298,6 +304,7 @@
             this.cmb1MD.Name = "cmb1MD";
             this.cmb1MD.Size = new System.Drawing.Size(40, 21);
             this.cmb1MD.TabIndex = 31;
+            this.cmb1MD.SelectionChangeCommitted += new System.EventHandler(this.cmb1MD_SelectionChangeCommitted);
             // 
             // cmb2MD
             // 
@@ -306,6 +313,7 @@
             this.cmb2MD.Name = "cmb2MD";
             this.cmb2MD.Size = new System.Drawing.Size(40, 21);
             this.cmb2MD.TabIndex = 32;
+            this.cmb2MD.SelectionChangeCommitted += new System.EventHandler(this.cmb2MD_SelectionChangeCommitted);
             // 
             // cmb3MD
             // 
@@ -314,6 +322,7 @@
             this.cmb3MD.Name = "cmb3MD";
             this.cmb3MD.Size = new System.Drawing.Size(40, 21);
             this.cmb3MD.TabIndex = 33;
+            this.cmb3MD.SelectionChangeCommitted += new System.EventHandler(this.cmb3MD_SelectionChangeCommitted);
             // 
             // cmb4MD
             // 
@@ -322,6 +331,7 @@
             this.cmb4MD.Name = "cmb4MD";
             this.cmb4MD.Size = new System.Drawing.Size(40, 21);
             this.cmb4MD.TabIndex = 34;
+            this.cmb4MD.SelectionChangeCommitted += new System.EventHandler(this.cmb4MD_SelectionChangeCommitted);
             // 
             // cmb5MD
             // 
@@ -330,6 +340,7 @@
             this.cmb5MD.Name = "cmb5MD";
             this.cmb5MD.Size = new System.Drawing.Size(40, 21);
             this.cmb5MD.TabIndex = 35;
+            this.cmb5MD.SelectionChangeCommitted += new System.EventHandler(this.cmb5MD_SelectionChangeCommitted);
             // 
             // cmb6MD
             // 
@@ -338,6 +349,7 @@
             this.cmb6MD.Name = "cmb6MD";
             this.cmb6MD.Size = new System.Drawing.Size(40, 21);
             this.cmb6MD.TabIndex = 36;
+            this.cmb6MD.SelectionChangeCommitted += new System.EventHandler(this.cmb6MD_SelectionChangeCommitted);
             // 
             // cmbEspecialidades
             // 
@@ -455,6 +467,7 @@
             this.cmb6HH.Name = "cmb6HH";
             this.cmb6HH.Size = new System.Drawing.Size(40, 21);
             this.cmb6HH.TabIndex = 49;
+            this.cmb6HH.SelectionChangeCommitted += new System.EventHandler(this.cmb6HH_SelectionChangeCommitted);
             // 
             // cmb5HH
             // 
@@ -463,6 +476,7 @@
             this.cmb5HH.Name = "cmb5HH";
             this.cmb5HH.Size = new System.Drawing.Size(40, 21);
             this.cmb5HH.TabIndex = 48;
+            this.cmb5HH.SelectionChangeCommitted += new System.EventHandler(this.cmb5HH_SelectionChangeCommitted);
             // 
             // cmb4HH
             // 
@@ -471,6 +485,7 @@
             this.cmb4HH.Name = "cmb4HH";
             this.cmb4HH.Size = new System.Drawing.Size(40, 21);
             this.cmb4HH.TabIndex = 47;
+            this.cmb4HH.SelectionChangeCommitted += new System.EventHandler(this.cmb4HH_SelectionChangeCommitted);
             // 
             // cmb3HH
             // 
@@ -479,6 +494,7 @@
             this.cmb3HH.Name = "cmb3HH";
             this.cmb3HH.Size = new System.Drawing.Size(40, 21);
             this.cmb3HH.TabIndex = 46;
+            this.cmb3HH.SelectionChangeCommitted += new System.EventHandler(this.cmb3HH_SelectionChangeCommitted);
             // 
             // cmb2HH
             // 
@@ -487,6 +503,7 @@
             this.cmb2HH.Name = "cmb2HH";
             this.cmb2HH.Size = new System.Drawing.Size(40, 21);
             this.cmb2HH.TabIndex = 45;
+            this.cmb2HH.SelectionChangeCommitted += new System.EventHandler(this.cmb2HH_SelectionChangeCommitted);
             // 
             // cmb1HH
             // 
@@ -495,6 +512,7 @@
             this.cmb1HH.Name = "cmb1HH";
             this.cmb1HH.Size = new System.Drawing.Size(40, 21);
             this.cmb1HH.TabIndex = 44;
+            this.cmb1HH.SelectionChangeCommitted += new System.EventHandler(this.cmb1HH_SelectionChangeCommitted);
             // 
             // label17
             // 
