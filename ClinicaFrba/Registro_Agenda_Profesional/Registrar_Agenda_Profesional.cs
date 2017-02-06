@@ -13,6 +13,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 {
     public partial class Registrar_Agenda_Profesional : Form
     {
+        SQL sql = new SQL();
         private int id_profesional { get; set; }
         private int id_usuario { get; set; }
         public Registrar_Agenda_Profesional()
@@ -28,7 +29,6 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
             }
             else
             {
-                SQL sql = new SQL();
                 List<Parametro> parametros = new List<Parametro>();
 
                 Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
@@ -58,7 +58,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
         private void btnRegistrarAgenda_Click(object sender, EventArgs e)
         {
             double cantHoras = 0;
-            if (dtpDesde.Value.CompareTo(dtpHasta.Value) > 0)
+            if (dtpDesde.Value.ToShortDateString().CompareTo(dtpHasta.Value.ToShortDateString()) > 0)
             {
                 MessageBox.Show("La fecha desde debe ser menor o igual que la fecha hasta.");
             }
@@ -82,9 +82,184 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                     }
                     else
                     {
-                        MessageBox.Show(cantHoras.ToString());
-                        
-                        // Llamar al SP que guarda las horas
+                        List<Parametro> parametros = new List<Parametro>();
+
+                        Parametro profesional_param = new Parametro("id_profesional", id_profesional);
+                        parametros.Add(profesional_param);
+                        Parametro espec_prof_param = new Parametro("id_especialidad_profesional", int.Parse(cmbEspecialidades.SelectedValue.ToString()));
+                        parametros.Add(espec_prof_param);
+                        Parametro fecha_desde_param = new Parametro("fecha_desde", dtpDesde.Value.Year.ToString() + '-' + dtpDesde.Value.Month.ToString() + '-' + dtpDesde.Value.Day.ToString());
+                        parametros.Add(fecha_desde_param);
+                        Parametro fecha_hasta_param = new Parametro("fecha_hasta", dtpHasta.Value.Year.ToString() + '-' + dtpHasta.Value.Month.ToString() + '-' + dtpHasta.Value.Day.ToString());
+                        parametros.Add(fecha_hasta_param);
+
+                        bool estado_error = false;
+
+                        if (!cmb1HD.SelectedItem.Equals('-')) {
+                            Parametro dia_param = new Parametro("dia_semana", 2);
+                            parametros.Add(dia_param);
+                            Parametro h_desde_param = new Parametro("hora_desde", int.Parse(cmb1HD.SelectedItem.ToString()));
+                            parametros.Add(h_desde_param);
+                            Parametro h_hasta_param = new Parametro("hora_hasta", int.Parse(cmb1HH.SelectedItem.ToString()));
+                            parametros.Add(h_hasta_param);
+                            Parametro m_desde_param = new Parametro("minuto_desde", int.Parse(cmb1MD.SelectedItem.ToString()));
+                            parametros.Add(m_desde_param);
+                            Parametro m_hasta_param = new Parametro("minuto_hasta", int.Parse(cmb1MH.SelectedItem.ToString()));
+                            parametros.Add(m_hasta_param);
+
+                            DataTable tabla = sql.ejecutarSP("usp_cargar_dia_agenda", parametros);
+                            
+                            parametros.Remove(dia_param);
+                            parametros.Remove(h_desde_param);
+                            parametros.Remove(h_hasta_param);
+                            parametros.Remove(m_desde_param);
+                            parametros.Remove(m_hasta_param);
+                            
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                estado_error = true;
+                            }
+                        }
+                        if (!cmb2HD.SelectedItem.Equals('-'))
+                        {
+                            Parametro dia_param = new Parametro("dia_semana", 3);
+                            parametros.Add(dia_param);
+                            Parametro h_desde_param = new Parametro("hora_desde", int.Parse(cmb2HD.SelectedItem.ToString()));
+                            parametros.Add(h_desde_param);
+                            Parametro h_hasta_param = new Parametro("hora_hasta", int.Parse(cmb2HH.SelectedItem.ToString()));
+                            parametros.Add(h_hasta_param);
+                            Parametro m_desde_param = new Parametro("minuto_desde", int.Parse(cmb2MD.SelectedItem.ToString()));
+                            parametros.Add(m_desde_param);
+                            Parametro m_hasta_param = new Parametro("minuto_hasta", int.Parse(cmb2MH.SelectedItem.ToString()));
+                            parametros.Add(m_hasta_param);
+
+                            DataTable tabla = sql.ejecutarSP("usp_cargar_dia_agenda", parametros);
+
+                            parametros.Remove(dia_param);
+                            parametros.Remove(h_desde_param);
+                            parametros.Remove(h_hasta_param);
+                            parametros.Remove(m_desde_param);
+                            parametros.Remove(m_hasta_param);
+
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                estado_error = true;
+                            }
+                        }
+                        if (!cmb3HD.SelectedItem.Equals('-'))
+                        {
+                            Parametro dia_param = new Parametro("dia_semana", 4);
+                            parametros.Add(dia_param);
+                            Parametro h_desde_param = new Parametro("hora_desde", int.Parse(cmb3HD.SelectedItem.ToString()));
+                            parametros.Add(h_desde_param);
+                            Parametro h_hasta_param = new Parametro("hora_hasta", int.Parse(cmb3HH.SelectedItem.ToString()));
+                            parametros.Add(h_hasta_param);
+                            Parametro m_desde_param = new Parametro("minuto_desde", int.Parse(cmb3MD.SelectedItem.ToString()));
+                            parametros.Add(m_desde_param);
+                            Parametro m_hasta_param = new Parametro("minuto_hasta", int.Parse(cmb3MH.SelectedItem.ToString()));
+                            parametros.Add(m_hasta_param);
+
+                            DataTable tabla = sql.ejecutarSP("usp_cargar_dia_agenda", parametros);
+
+                            parametros.Remove(dia_param);
+                            parametros.Remove(h_desde_param);
+                            parametros.Remove(h_hasta_param);
+                            parametros.Remove(m_desde_param);
+                            parametros.Remove(m_hasta_param);
+
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                estado_error = true;
+                            }
+                        }
+                        if (!cmb4HD.SelectedItem.Equals('-'))
+                        {
+                            Parametro dia_param = new Parametro("dia_semana", 5);
+                            parametros.Add(dia_param);
+                            Parametro h_desde_param = new Parametro("hora_desde", int.Parse(cmb4HD.SelectedItem.ToString()));
+                            parametros.Add(h_desde_param);
+                            Parametro h_hasta_param = new Parametro("hora_hasta", int.Parse(cmb4HH.SelectedItem.ToString()));
+                            parametros.Add(h_hasta_param);
+                            Parametro m_desde_param = new Parametro("minuto_desde", int.Parse(cmb4MD.SelectedItem.ToString()));
+                            parametros.Add(m_desde_param);
+                            Parametro m_hasta_param = new Parametro("minuto_hasta", int.Parse(cmb4MH.SelectedItem.ToString()));
+                            parametros.Add(m_hasta_param);
+
+                            DataTable tabla = sql.ejecutarSP("usp_cargar_dia_agenda", parametros);
+
+                            parametros.Remove(dia_param);
+                            parametros.Remove(h_desde_param);
+                            parametros.Remove(h_hasta_param);
+                            parametros.Remove(m_desde_param);
+                            parametros.Remove(m_hasta_param);
+
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                estado_error = true;
+                            }
+                        }
+                        if (!cmb5HD.SelectedItem.Equals('-'))
+                        {
+                            Parametro dia_param = new Parametro("dia_semana", 6);
+                            parametros.Add(dia_param);
+                            Parametro h_desde_param = new Parametro("hora_desde", int.Parse(cmb5HD.SelectedItem.ToString()));
+                            parametros.Add(h_desde_param);
+                            Parametro h_hasta_param = new Parametro("hora_hasta", int.Parse(cmb5HH.SelectedItem.ToString()));
+                            parametros.Add(h_hasta_param);
+                            Parametro m_desde_param = new Parametro("minuto_desde", int.Parse(cmb5MD.SelectedItem.ToString()));
+                            parametros.Add(m_desde_param);
+                            Parametro m_hasta_param = new Parametro("minuto_hasta", int.Parse(cmb5MH.SelectedItem.ToString()));
+                            parametros.Add(m_hasta_param);
+
+                            DataTable tabla = sql.ejecutarSP("usp_cargar_dia_agenda", parametros);
+
+                            parametros.Remove(dia_param);
+                            parametros.Remove(h_desde_param);
+                            parametros.Remove(h_hasta_param);
+                            parametros.Remove(m_desde_param);
+                            parametros.Remove(m_hasta_param);
+
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                estado_error = true;
+                            }
+                        }
+                        if (!cmb6HD.SelectedItem.Equals('-'))
+                        {
+                            Parametro dia_param = new Parametro("dia_semana", 7);
+                            parametros.Add(dia_param);
+                            Parametro h_desde_param = new Parametro("hora_desde", int.Parse(cmb6HD.SelectedItem.ToString()));
+                            parametros.Add(h_desde_param);
+                            Parametro h_hasta_param = new Parametro("hora_hasta", int.Parse(cmb6HH.SelectedItem.ToString()));
+                            parametros.Add(h_hasta_param);
+                            Parametro m_desde_param = new Parametro("minuto_desde", int.Parse(cmb6MD.SelectedItem.ToString()));
+                            parametros.Add(m_desde_param);
+                            Parametro m_hasta_param = new Parametro("minuto_hasta", int.Parse(cmb6MH.SelectedItem.ToString()));
+                            parametros.Add(m_hasta_param);
+
+                            DataTable tabla = sql.ejecutarSP("usp_cargar_dia_agenda", parametros);
+
+                            parametros.Remove(dia_param);
+                            parametros.Remove(h_desde_param);
+                            parametros.Remove(h_hasta_param);
+                            parametros.Remove(m_desde_param);
+                            parametros.Remove(m_hasta_param);
+
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                estado_error = true;
+                            }
+                        }
+
+                        if (estado_error)
+                        {
+                            MessageBox.Show("No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Agenda cargada exitosamente!");
+                            cleanFormulario();
+                        }
                     }
                 }
             }
@@ -195,10 +370,9 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
             return acum;
         }
 
-        private void linkCleanAfiliado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkCleanFormulario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            txtDocumento.Text = null;
-            btnRegistrarAgenda.Visible = false;
+            cleanFormulario();
         }
 
         private void inicializarEspecialidades()
@@ -245,9 +419,27 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
             this.cmb5HD.SelectedIndex = 0;
             cmb6HD.Items.AddRange(new object[] {'-',10,11,12,13,14});
             this.cmb6HD.SelectedIndex = 0;
+            inicializarCombosDeMinutosDesde(cmb1HD.SelectedItem, cmb1MD);
+            inicializarCombosDeMinutosDesde(cmb2HD.SelectedItem, cmb2MD);
+            inicializarCombosDeMinutosDesde(cmb3HD.SelectedItem, cmb3MD);
+            inicializarCombosDeMinutosDesde(cmb4HD.SelectedItem, cmb4MD);
+            inicializarCombosDeMinutosDesde(cmb5HD.SelectedItem, cmb5MD);
+            inicializarCombosDeMinutosDesde(cmb6HD.SelectedItem, cmb6MD);
+            inicializarCombosDeHoraHasta(cmb1HD.SelectedItem, cmb1MD.SelectedItem, cmb1HH, 20);
+            inicializarCombosDeHoraHasta(cmb2HD.SelectedItem, cmb2MD.SelectedItem, cmb2HH, 20);
+            inicializarCombosDeHoraHasta(cmb3HD.SelectedItem, cmb3MD.SelectedItem, cmb3HH, 20);
+            inicializarCombosDeHoraHasta(cmb4HD.SelectedItem, cmb4MD.SelectedItem, cmb4HH, 20);
+            inicializarCombosDeHoraHasta(cmb5HD.SelectedItem, cmb5MD.SelectedItem, cmb5HH, 20);
+            inicializarCombosDeHoraHasta(cmb6HD.SelectedItem, cmb6MD.SelectedItem, cmb6HH, 15);
+            inicalizarCombosDeMinutosHasta(cmb1HD.SelectedItem, cmb1HH.SelectedItem, cmb1MH, "20");
+            inicalizarCombosDeMinutosHasta(cmb2HD.SelectedItem, cmb2HH.SelectedItem, cmb2MH, "20");
+            inicalizarCombosDeMinutosHasta(cmb3HD.SelectedItem, cmb3HH.SelectedItem, cmb3MH, "20");
+            inicalizarCombosDeMinutosHasta(cmb4HD.SelectedItem, cmb4HH.SelectedItem, cmb4MH, "20");
+            inicalizarCombosDeMinutosHasta(cmb5HD.SelectedItem, cmb5HH.SelectedItem, cmb5MH, "20");
+            inicalizarCombosDeMinutosHasta(cmb6HD.SelectedItem, cmb6HH.SelectedItem, cmb6MH, "15");
         }
 
-        private void inicalizarCombosDeMinutosDesde(Object hora_desde, ComboBox cmb)
+        private void inicializarCombosDeMinutosDesde(Object hora_desde, ComboBox cmb)
         {
             cmb.Items.Clear();
             if (hora_desde.ToString().Equals("-"))
@@ -305,7 +497,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb1HD_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosDesde(this.cmb1HD.SelectedItem, this.cmb1MD);
+            inicializarCombosDeMinutosDesde(this.cmb1HD.SelectedItem, this.cmb1MD);
             inicializarCombosDeHoraHasta(this.cmb1HD.SelectedItem, this.cmb1MD.SelectedItem, this.cmb1HH, 20);
             inicalizarCombosDeMinutosHasta(this.cmb1HD.SelectedItem, this.cmb1HH.SelectedItem, this.cmb1MH, "20");
         }
@@ -323,7 +515,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb2HD_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosDesde(this.cmb2HD.SelectedItem, this.cmb2MD);
+            inicializarCombosDeMinutosDesde(this.cmb2HD.SelectedItem, this.cmb2MD);
             inicializarCombosDeHoraHasta(this.cmb2HD.SelectedItem, this.cmb2MD.SelectedItem, this.cmb2HH, 20);
             inicalizarCombosDeMinutosHasta(this.cmb2HD.SelectedItem, this.cmb2HH.SelectedItem, this.cmb2MH, "20");
         }
@@ -341,7 +533,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb3HD_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosDesde(this.cmb3HD.SelectedItem, this.cmb3MD);
+            inicializarCombosDeMinutosDesde(this.cmb3HD.SelectedItem, this.cmb3MD);
             inicializarCombosDeHoraHasta(this.cmb3HD.SelectedItem, this.cmb3MD.SelectedItem, this.cmb3HH, 20);
             inicalizarCombosDeMinutosHasta(this.cmb3HD.SelectedItem, this.cmb3HH.SelectedItem, this.cmb3MH, "20");
         }
@@ -359,7 +551,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb4HD_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosDesde(this.cmb4HD.SelectedItem, this.cmb4MD);
+            inicializarCombosDeMinutosDesde(this.cmb4HD.SelectedItem, this.cmb4MD);
             inicializarCombosDeHoraHasta(this.cmb4HD.SelectedItem, this.cmb4MD.SelectedItem, this.cmb4HH, 20);
             inicalizarCombosDeMinutosHasta(this.cmb4HD.SelectedItem, this.cmb4HH.SelectedItem, this.cmb4MH, "20");
         }
@@ -377,7 +569,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb5HD_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosDesde(this.cmb5HD.SelectedItem, this.cmb5MD);
+            inicializarCombosDeMinutosDesde(this.cmb5HD.SelectedItem, this.cmb5MD);
             inicializarCombosDeHoraHasta(this.cmb5HD.SelectedItem, this.cmb5MD.SelectedItem, this.cmb5HH, 20);
             inicalizarCombosDeMinutosHasta(this.cmb5HD.SelectedItem, this.cmb5HH.SelectedItem, this.cmb5MH, "20");
         }
@@ -395,7 +587,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb6HD_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosDesde(this.cmb6HD.SelectedItem, this.cmb6MD);
+            inicializarCombosDeMinutosDesde(this.cmb6HD.SelectedItem, this.cmb6MD);
             inicializarCombosDeHoraHasta(this.cmb6HD.SelectedItem, this.cmb6MD.SelectedItem, this.cmb6HH, 15);
             inicalizarCombosDeMinutosHasta(this.cmb6HD.SelectedItem, this.cmb6HH.SelectedItem, this.cmb6MH, "15");
         }
@@ -409,6 +601,17 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
         private void cmb6HH_SelectionChangeCommitted(object sender, EventArgs e)
         {
             inicalizarCombosDeMinutosHasta(this.cmb6HD.SelectedItem, this.cmb6HH.SelectedItem, this.cmb6MH, "15");
+        }
+
+        private void cleanFormulario()
+        {
+            this.txtDocumento.Text = null;
+            this.btnRegistrarAgenda.Visible = false;
+            id_profesional = 0;
+            inicializarEspecialidades();
+            dtpDesde.Value = DateTime.Now;
+            dtpHasta.Value = DateTime.Now;
+            inicializarCombos();
         }
 
     }

@@ -212,7 +212,7 @@
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
-            // cl_AbmRol
+            // ABM_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -224,8 +224,9 @@
             this.Controls.Add(this.dgvRoles);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
-            this.Name = "cl_AbmRol";
+            this.Name = "ABM_Rol";
             this.Text = "Administrar Roles";
+            this.Load += new System.EventHandler(this.ABM_Rol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

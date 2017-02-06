@@ -48,6 +48,7 @@ namespace ClinicaFrba.AbmRol
         {
             this.txtNombreRol.Text = String.Empty;
             this.comboEstado.SelectedIndex = 1;
+           // this.chkFuncionalidades.CheckOnClick = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -275,5 +276,11 @@ namespace ClinicaFrba.AbmRol
             int habilitado = Convert.ToInt32(this.comboEstado.SelectedIndex.ToString());
             modificarRol(this.txtNombreRol.Text, habilitado, chkFuncionalidades);
         }
+
+        private void ABM_Rol_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

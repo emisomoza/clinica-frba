@@ -35,18 +35,18 @@ namespace ClinicaFrba.Compra_Bono
             this.lCantidad = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNumeroAfiliado
             // 
             this.txtNumeroAfiliado.Location = new System.Drawing.Point(130, 22);
-            this.txtNumeroAfiliado.MaxLength = 255;
             this.txtNumeroAfiliado.Name = "txtNumeroAfiliado";
             this.txtNumeroAfiliado.Size = new System.Drawing.Size(120, 20);
             this.txtNumeroAfiliado.TabIndex = 1;
-            this.txtNumeroAfiliado.Visible = false;
             this.txtNumeroAfiliado.ValidatingType = typeof(int);
-            this.txtNumeroAfiliado.TypeValidationCompleted += new TypeValidationEventHandler(txtNumeroAfiliado_TypeValidationCompleted);
+            this.txtNumeroAfiliado.Visible = false;
+            this.txtNumeroAfiliado.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.txtNumeroAfiliado_TypeValidationCompleted);
             // 
             // lNumeroAfiliado
             // 
@@ -61,10 +61,19 @@ namespace ClinicaFrba.Compra_Bono
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(130, 47);
+            this.txtCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(55, 20);
             this.txtCantidad.TabIndex = 3;
-            this.txtCantidad.Minimum = 1;
+            this.txtCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lCantidad
             // 
@@ -108,6 +117,8 @@ namespace ClinicaFrba.Compra_Bono
             this.Controls.Add(this.btnAceptar);
             this.Name = "Comprar_Bono";
             this.Text = "Comprar Bono";
+            this.Load += new System.EventHandler(this.Comprar_Bono_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

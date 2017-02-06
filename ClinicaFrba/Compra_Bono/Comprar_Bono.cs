@@ -74,5 +74,10 @@ namespace ClinicaFrba.Compra_Bono
             this.txtNumeroAfiliado.Clear();
             this.txtCantidad.Text = "1";
         }
+
+        private void Comprar_Bono_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

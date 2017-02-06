@@ -34,7 +34,7 @@
             this.lblProfesional = new System.Windows.Forms.Label();
             this.btnRegistrarAgenda = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkCleanAfiliado = new System.Windows.Forms.LinkLabel();
+            this.linkCleanFormulario = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -138,16 +138,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Profesional:";
             // 
-            // linkCleanAfiliado
+            // linkCleanFormulario
             // 
-            this.linkCleanAfiliado.AutoSize = true;
-            this.linkCleanAfiliado.Location = new System.Drawing.Point(9, 294);
-            this.linkCleanAfiliado.Name = "linkCleanAfiliado";
-            this.linkCleanAfiliado.Size = new System.Drawing.Size(81, 13);
-            this.linkCleanAfiliado.TabIndex = 14;
-            this.linkCleanAfiliado.TabStop = true;
-            this.linkCleanAfiliado.Text = "Limpiar Campos";
-            this.linkCleanAfiliado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCleanAfiliado_LinkClicked);
+            this.linkCleanFormulario.AutoSize = true;
+            this.linkCleanFormulario.Location = new System.Drawing.Point(9, 294);
+            this.linkCleanFormulario.Name = "linkCleanFormulario";
+            this.linkCleanFormulario.Size = new System.Drawing.Size(81, 13);
+            this.linkCleanFormulario.TabIndex = 14;
+            this.linkCleanFormulario.TabStop = true;
+            this.linkCleanFormulario.Text = "Limpiar Campos";
+            this.linkCleanFormulario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCleanFormulario_LinkClicked);
             // 
             // label3
             // 
@@ -620,7 +620,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.linkCleanAfiliado);
+            this.Controls.Add(this.linkCleanFormulario);
             this.Controls.Add(this.btnRegistrarAgenda);
             this.Controls.Add(this.lblProfesional);
             this.Controls.Add(this.label2);
@@ -642,7 +642,7 @@
         private System.Windows.Forms.Label lblProfesional;
         private System.Windows.Forms.Button btnRegistrarAgenda;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkCleanAfiliado;
+        private System.Windows.Forms.LinkLabel linkCleanFormulario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
