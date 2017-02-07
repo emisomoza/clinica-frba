@@ -59,6 +59,9 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 MessageBox.Show(tabla.Rows[0].ItemArray[0].ToString());
             }
+            txtIdBaja.Text = "";
+            btnBaja.Visible = false;
+            btnBuscar_Click(sender, e);
         }
 
         private void dgvAfiliados_CellContentClick(object sender, DataGridViewCellEventArgs e)

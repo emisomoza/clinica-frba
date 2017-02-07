@@ -55,6 +55,7 @@ namespace ClinicaFrba.Abm_Afiliado
             int id_afiliado_raiz;
             int nro_afiliado;
             int id_usuario;
+            char[] letters = { '@', '.' };
 
             if (
                 string.IsNullOrWhiteSpace(txtApellido.Text) ||
@@ -76,6 +77,9 @@ namespace ClinicaFrba.Abm_Afiliado
             else if (!int.TryParse(txtNroDocumento.Text, out parsedValue))
             {
                 MessageBox.Show("El documento debe contener solo números.");
+            }
+            else if (!(txtEmail.Text.IndexOf("@") >= 0) && !(txtEmail.Text.IndexOf(".") >= 0)) {
+                MessageBox.Show("Dirección de email incorrecta.");
             }
             else
             {

@@ -607,7 +607,8 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
         {
             this.txtDocumento.Text = null;
             this.btnRegistrarAgenda.Visible = false;
-            id_profesional = 0;
+            id_profesional = 0; 
+            lblProfesional.Visible = false;
             inicializarEspecialidades();
             dtpDesde.Value = DateTime.Now;
             dtpHasta.Value = DateTime.Now;

@@ -101,6 +101,7 @@
             this.txtIdBaja.Size = new System.Drawing.Size(100, 20);
             this.txtIdBaja.TabIndex = 6;
             this.txtIdBaja.TextChanged += new System.EventHandler(this.txtIdBaja_TextChanged);
+            this.txtIdBaja.Enabled = false;
             // 
             // label3
             // 
@@ -109,7 +110,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Elegir id de afiliado a dar de baja";
+            this.label3.Text = "Elegir el afiliado a dar de baja";
             // 
             // Baja_Afiliado
             // 
@@ -125,7 +126,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAfiliados);
             this.Name = "Baja_Afiliado";
-            this.Text = "Baja_Afiliado";
+            this.Text = "Baja de Afiliado";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAfiliados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

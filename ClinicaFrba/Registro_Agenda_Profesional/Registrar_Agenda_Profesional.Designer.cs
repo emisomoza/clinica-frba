@@ -356,7 +356,7 @@
             this.cmbEspecialidades.FormattingEnabled = true;
             this.cmbEspecialidades.Location = new System.Drawing.Point(156, 36);
             this.cmbEspecialidades.Name = "cmbEspecialidades";
-            this.cmbEspecialidades.Size = new System.Drawing.Size(134, 21);
+            this.cmbEspecialidades.Size = new System.Drawing.Size(181, 21);
             this.cmbEspecialidades.TabIndex = 37;
             // 
             // label13

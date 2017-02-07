@@ -40,17 +40,23 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.dgvPlanesAfiliado.DataSource = getPlanesPorDocumento(txtDocumento.Text.ToString());
-            this.dgvPlanesAfiliado.AllowUserToAddRows = false;
-            this.dgvPlanesAfiliado.MultiSelect = false;
-            if (this.dgvPlanesAfiliado.RowCount > 0)
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
             {
-                btnCambiar.Visible = true;
-                this.id_afiliado = Convert.ToInt32(this.dgvPlanesAfiliado.Rows[0].Cells[0].Value.ToString());
+                this.dgvPlanesAfiliado.DataSource = getPlanesPorDocumento(int.Parse(txtDocumento.Text.ToString()));
+                this.dgvPlanesAfiliado.AllowUserToAddRows = false;
+                this.dgvPlanesAfiliado.MultiSelect = false;
+                if (this.dgvPlanesAfiliado.RowCount > 0)
+                {
+                    btnCambiar.Visible = true;
+                    this.id_afiliado = Convert.ToInt32(this.dgvPlanesAfiliado.Rows[0].Cells[0].Value.ToString());
+                }
+            } else {
+                MessageBox.Show("El campo 'Nro de documento' debe ser numérico");  
             }
         }
 
-        public static DataTable getPlanesPorDocumento(String documento)
+        public static DataTable getPlanesPorDocumento(int documento)
         {
             SQL sql = new SQL();
             List<Parametro> parametros = new List<Parametro>();
@@ -61,7 +67,7 @@ namespace ClinicaFrba.Abm_Afiliado
             DataTable tabla = sql.ejecutarSP("usp_get_planes_afiliado_historico", parametros);
             if (tabla.Rows.Count == 0)
             {
-                MessageBox.Show("No existe el afiliado con el documento ingresado");
+                MessageBox.Show("No existe un afiliado activo con el documento ingresado");
                 return null;
             }
             else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
@@ -103,6 +109,9 @@ namespace ClinicaFrba.Abm_Afiliado
                 {
                     MessageBox.Show(tabla.Rows[0].ItemArray[0].ToString());
                 }
+                txtMotivo.Text = "";
+                inicializarPlanes();
+                btnBuscar_Click(sender, e);
             }
         }
     }
