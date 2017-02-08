@@ -58,7 +58,8 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
         private void btnRegistrarAgenda_Click(object sender, EventArgs e)
         {
             double cantHoras = 0;
-            if (dtpDesde.Value.ToShortDateString().CompareTo(dtpHasta.Value.ToShortDateString()) > 0)
+
+            if (DateTime.Compare(dtpDesde.Value, dtpHasta.Value) > 0 && !dtpDesde.Value.ToShortDateString().Equals(dtpHasta.Value.ToShortDateString()))
             {
                 MessageBox.Show("La fecha desde debe ser menor o igual que la fecha hasta.");
             }
@@ -94,6 +95,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                         parametros.Add(fecha_hasta_param);
 
                         bool estado_error = false;
+                        String inform = "Información sobre la carga de la agenda: \n";
 
                         if (!cmb1HD.SelectedItem.Equals('-')) {
                             Parametro dia_param = new Parametro("dia_semana", 2);
@@ -115,9 +117,21 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                             parametros.Remove(m_desde_param);
                             parametros.Remove(m_hasta_param);
                             
-                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR" && tabla.Rows[0].ItemArray[2].ToString() == "2627")
                             {
-                                estado_error = true;
+                                inform = inform + "Lunes: No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "WARNING")
+                            {
+                                inform = inform + "Lunes: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                inform = inform + "Lunes: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else
+                            {
+                                inform = inform + "Lunes: Registros insertados exitosamente.\n";
                             }
                         }
                         if (!cmb2HD.SelectedItem.Equals('-'))
@@ -141,9 +155,21 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                             parametros.Remove(m_desde_param);
                             parametros.Remove(m_hasta_param);
 
-                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR" && tabla.Rows[0].ItemArray[2].ToString() == "2627")
                             {
-                                estado_error = true;
+                                inform = inform + "Martes: No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "WARNING")
+                            {
+                                inform = inform + "Martes: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                inform = inform + "Martes: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else
+                            {
+                                inform = inform + "Martes: Registros insertados exitosamente.\n";
                             }
                         }
                         if (!cmb3HD.SelectedItem.Equals('-'))
@@ -167,9 +193,21 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                             parametros.Remove(m_desde_param);
                             parametros.Remove(m_hasta_param);
 
-                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR" && tabla.Rows[0].ItemArray[2].ToString() == "2627")
                             {
-                                estado_error = true;
+                                inform = inform + "Miercoles: No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "WARNING")
+                            {
+                                inform = inform + "Miercoles: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                inform = inform + "Miercoles: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else
+                            {
+                                inform = inform + "Miercoles: Registros insertados exitosamente.\n";
                             }
                         }
                         if (!cmb4HD.SelectedItem.Equals('-'))
@@ -193,9 +231,21 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                             parametros.Remove(m_desde_param);
                             parametros.Remove(m_hasta_param);
 
-                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR" && tabla.Rows[0].ItemArray[2].ToString() == "2627")
                             {
-                                estado_error = true;
+                                inform = inform + "Jueves: No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "WARNING")
+                            {
+                                inform = inform + "Jueves: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                inform = inform + "Jueves: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else
+                            {
+                                inform = inform + "Jueves: Registros insertados exitosamente.\n";
                             }
                         }
                         if (!cmb5HD.SelectedItem.Equals('-'))
@@ -219,9 +269,21 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                             parametros.Remove(m_desde_param);
                             parametros.Remove(m_hasta_param);
 
-                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR" && tabla.Rows[0].ItemArray[2].ToString() == "2627")
                             {
-                                estado_error = true;
+                                inform = inform + "Viernes: No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "WARNING")
+                            {
+                                inform = inform + "Viernes: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                inform = inform + "Viernes: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else
+                            {
+                                inform = inform + "Viernes: Registros insertados exitosamente.\n";
                             }
                         }
                         if (!cmb6HD.SelectedItem.Equals('-'))
@@ -245,21 +307,25 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                             parametros.Remove(m_desde_param);
                             parametros.Remove(m_hasta_param);
 
-                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR" && tabla.Rows[0].ItemArray[2].ToString() == "2627")
                             {
-                                estado_error = true;
+                                inform = inform + "Sabado: No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "WARNING")
+                            {
+                                inform = inform + "Sabado: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                            {
+                                inform = inform + "Sabado: " + tabla.Rows[0].ItemArray[1].ToString() + "\n";
+                            }
+                            else
+                            {
+                                inform = inform + "Sabado: Registros insertados exitosamente.\n";
                             }
                         }
 
-                        if (estado_error)
-                        {
-                            MessageBox.Show("No se pueden cargar los valores ingresados porque se superponen con la agenda preexistente.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Agenda cargada exitosamente!");
-                            cleanFormulario();
-                        }
+                        MessageBox.Show(inform);
                     }
                 }
             }
