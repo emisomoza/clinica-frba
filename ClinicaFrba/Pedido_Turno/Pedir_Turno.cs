@@ -233,12 +233,16 @@ namespace ClinicaFrba.Pedido_Turno
             else
             {
                 MessageBox.Show("Turno asignado exitosamente.");
+                this.limpiar();
             }
-
-            buscarHorariosDisponibles();
         }
 
         private void linkLimpiar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.limpiar();
+        }
+
+        private void limpiar()
         {
             this.cmbProfesional.DataSource = null;
             this.cmbProfesional.Items.Clear();
