@@ -76,7 +76,6 @@
             this.groupAltaAfiliado.Location = new System.Drawing.Point(21, 62);
             this.groupAltaAfiliado.Name = "groupAltaAfiliado";
             this.groupAltaAfiliado.Size = new System.Drawing.Size(721, 257);
-            this.groupAltaAfiliado.TabIndex = 18;
             this.groupAltaAfiliado.TabStop = false;
             this.groupAltaAfiliado.Text = "Modificación de afiliado";
             // 
@@ -85,7 +84,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(623, 200);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 30;
+            this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -96,7 +95,6 @@
             this.label6.Location = new System.Drawing.Point(30, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 25;
             this.label6.Text = "Estado civil";
             // 
             // label4
@@ -105,7 +103,6 @@
             this.label4.Location = new System.Drawing.Point(30, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 13);
-            this.label4.TabIndex = 23;
             // 
             // cmbEstadoCivil
             // 
@@ -113,7 +110,7 @@
             this.cmbEstadoCivil.Location = new System.Drawing.Point(151, 178);
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
             this.cmbEstadoCivil.Size = new System.Drawing.Size(151, 21);
-            this.cmbEstadoCivil.TabIndex = 22;
+            this.cmbEstadoCivil.TabIndex = 6;
             // 
             // label3
             // 
@@ -121,7 +118,6 @@
             this.label3.Location = new System.Drawing.Point(30, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 18;
             this.label3.Text = "Teléfono";
             // 
             // txtTelefono
@@ -129,14 +125,14 @@
             this.txtTelefono.Location = new System.Drawing.Point(151, 126);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(220, 20);
-            this.txtTelefono.TabIndex = 17;
+            this.txtTelefono.TabIndex = 4;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(151, 100);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(220, 20);
-            this.txtDireccion.TabIndex = 16;
+            this.txtDireccion.TabIndex = 3;
             // 
             // label2
             // 
@@ -144,7 +140,6 @@
             this.label2.Location = new System.Drawing.Point(30, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 15;
             this.label2.Text = "Direccion";
             // 
             // label10
@@ -153,7 +148,6 @@
             this.label10.Location = new System.Drawing.Point(30, 21);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
-            this.label10.TabIndex = 2;
             this.label10.Text = "Nombre:";
             // 
             // label11
@@ -162,7 +156,6 @@
             this.label11.Location = new System.Drawing.Point(30, 49);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 13);
-            this.label11.TabIndex = 3;
             this.label11.Text = "Apellido:";
             // 
             // linkCleanAfiliado
@@ -171,7 +164,7 @@
             this.linkCleanAfiliado.Location = new System.Drawing.Point(10, 241);
             this.linkCleanAfiliado.Name = "linkCleanAfiliado";
             this.linkCleanAfiliado.Size = new System.Drawing.Size(81, 13);
-            this.linkCleanAfiliado.TabIndex = 13;
+            this.linkCleanAfiliado.TabIndex = 8;
             this.linkCleanAfiliado.TabStop = true;
             this.linkCleanAfiliado.Text = "Limpiar Campos";
             this.linkCleanAfiliado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.limpiarCampos_LinkClicked);
@@ -181,7 +174,7 @@
             this.txtEmail.Location = new System.Drawing.Point(151, 152);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(220, 20);
-            this.txtEmail.TabIndex = 12;
+            this.txtEmail.TabIndex = 5;
             // 
             // label12
             // 
@@ -189,7 +182,6 @@
             this.label12.Location = new System.Drawing.Point(30, 77);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(118, 13);
-            this.label12.TabIndex = 0;
             this.label12.Text = "Numero de documento:";
             // 
             // label13
@@ -198,7 +190,6 @@
             this.label13.Location = new System.Drawing.Point(30, 155);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(32, 13);
-            this.label13.TabIndex = 11;
             this.label13.Text = "Email";
             // 
             // btnBuscarClie
@@ -206,7 +197,6 @@
             this.btnBuscarClie.Location = new System.Drawing.Point(0, 0);
             this.btnBuscarClie.Name = "btnBuscarClie";
             this.btnBuscarClie.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarClie.TabIndex = 0;
             // 
             // btnCancelar
             // 
@@ -224,7 +214,6 @@
             this.label1.Location = new System.Drawing.Point(27, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 19;
             this.label1.Text = "Ingrese documento";
             // 
             // txtDocumento
@@ -232,7 +221,7 @@
             this.txtDocumento.Location = new System.Drawing.Point(131, 22);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 20;
+            this.txtDocumento.TabIndex = 1;
             this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged);
             // 
             // btnBuscar
@@ -240,7 +229,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(248, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -251,7 +240,6 @@
             this.lblNombre.Location = new System.Drawing.Point(80, 21);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 22;
             this.lblNombre.Text = "Nombre";
             this.lblNombre.Visible = false;
             // 
@@ -261,7 +249,6 @@
             this.lblApellido.Location = new System.Drawing.Point(80, 49);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
-            this.lblApellido.TabIndex = 31;
             this.lblApellido.Text = "Apellido";
             this.lblApellido.Visible = false;
             // 
@@ -271,7 +258,6 @@
             this.lblDocumento.Location = new System.Drawing.Point(151, 77);
             this.lblDocumento.Name = "lblDocumento";
             this.lblDocumento.Size = new System.Drawing.Size(60, 13);
-            this.lblDocumento.TabIndex = 32;
             this.lblDocumento.Text = "documento";
             this.lblDocumento.Visible = false;
             // 

@@ -101,34 +101,41 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            SQL sql = new SQL();
-            List<Parametro> parametros = new List<Parametro>();
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
+            {
+                SQL sql = new SQL();
+                List<Parametro> parametros = new List<Parametro>();
 
-            Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
-            parametros.Add(documento_param);
+                Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
+                parametros.Add(documento_param);
 
-            DataTable tabla = sql.ejecutarSP("usp_obtener_afiliados_x_documento_modif", parametros);
-            if (tabla.Rows.Count == 0)
-            {
-                MessageBox.Show("No se obtuvieron resultados con el documento ingresado");
+                DataTable tabla = sql.ejecutarSP("usp_obtener_afiliados_x_documento_modif", parametros);
+                if (tabla.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se obtuvieron resultados con el documento ingresado");
+                }
+                else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                {
+                    MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                }
+                else
+                {
+                    id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                    lblNombre.Visible = true;
+                    lblApellido.Visible = true;
+                    lblDocumento.Visible = true;
+                    lblNombre.Text = tabla.Rows[0].ItemArray[1].ToString();
+                    lblApellido.Text = tabla.Rows[0].ItemArray[2].ToString();
+                    txtDireccion.Text = tabla.Rows[0].ItemArray[3].ToString();
+                    txtTelefono.Text = tabla.Rows[0].ItemArray[4].ToString();
+                    txtEmail.Text = tabla.Rows[0].ItemArray[5].ToString();
+                    lblDocumento.Text = txtDocumento.Text;
+                    cmbEstadoCivil.SelectedValue = tabla.Rows[0].ItemArray[6].ToString();
+                }
             }
-            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
-            {
-                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
-            }
-            else
-            {
-                id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
-                lblNombre.Visible = true;
-                lblApellido.Visible = true;
-                lblDocumento.Visible = true;
-                lblNombre.Text = tabla.Rows[0].ItemArray[1].ToString();
-                lblApellido.Text = tabla.Rows[0].ItemArray[2].ToString();
-                txtDireccion.Text = tabla.Rows[0].ItemArray[3].ToString();
-                txtTelefono.Text = tabla.Rows[0].ItemArray[4].ToString();
-                txtEmail.Text = tabla.Rows[0].ItemArray[5].ToString();
-                lblDocumento.Text = txtDocumento.Text;
-                cmbEstadoCivil.SelectedValue = tabla.Rows[0].ItemArray[6].ToString();
+            else {
+                MessageBox.Show("El nro de documento ingresado no es válido.");
             }
         }
 

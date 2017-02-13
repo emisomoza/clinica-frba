@@ -1,4 +1,5 @@
-﻿namespace ClinicaFrba.Cancelar_Atencion
+﻿using ClinicaFrba.Properties;
+namespace ClinicaFrba.Cancelar_Atencion
 {
     partial class Cancelar_Atencion_Medica
     {
@@ -99,7 +100,9 @@
             this.dtpDesde.Location = new System.Drawing.Point(12, 88);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
-            this.dtpDesde.TabIndex = 6;
+            this.dtpDesde.TabIndex = 6; 
+            this.dtpDesde.MinDate = Settings.Default.Fecha_Sistema.AddDays(1);
+            this.dtpDesde.Value = dtpDesde.MinDate;
             // 
             // dtpHasta
             // 
@@ -107,6 +110,8 @@
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpHasta.TabIndex = 7;
+            this.dtpHasta.MinDate = Settings.Default.Fecha_Sistema.AddDays(1);
+            this.dtpHasta.Value = dtpHasta.MinDate;
             // 
             // btnCancelar
             // 

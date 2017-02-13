@@ -221,6 +221,7 @@
             this.cmb1HD.Size = new System.Drawing.Size(40, 21);
             this.cmb1HD.TabIndex = 22;
             this.cmb1HD.SelectionChangeCommitted += new System.EventHandler(this.cmb1HD_SelectionChangeCommitted);
+            this.cmb1HD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb2HD
             // 
@@ -230,6 +231,7 @@
             this.cmb2HD.Size = new System.Drawing.Size(40, 21);
             this.cmb2HD.TabIndex = 23;
             this.cmb2HD.SelectionChangeCommitted += new System.EventHandler(this.cmb2HD_SelectionChangeCommitted);
+            this.cmb2HD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb3HD
             // 
@@ -239,6 +241,7 @@
             this.cmb3HD.Size = new System.Drawing.Size(40, 21);
             this.cmb3HD.TabIndex = 24;
             this.cmb3HD.SelectionChangeCommitted += new System.EventHandler(this.cmb3HD_SelectionChangeCommitted);
+            this.cmb3HD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb4HD
             // 
@@ -248,6 +251,7 @@
             this.cmb4HD.Size = new System.Drawing.Size(40, 21);
             this.cmb4HD.TabIndex = 25;
             this.cmb4HD.SelectionChangeCommitted += new System.EventHandler(this.cmb4HD_SelectionChangeCommitted);
+            this.cmb4HD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb5HD
             // 
@@ -257,6 +261,7 @@
             this.cmb5HD.Size = new System.Drawing.Size(40, 21);
             this.cmb5HD.TabIndex = 26;
             this.cmb5HD.SelectionChangeCommitted += new System.EventHandler(this.cmb5HD_SelectionChangeCommitted);
+            this.cmb5HD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb6HD
             // 
@@ -266,6 +271,7 @@
             this.cmb6HD.Size = new System.Drawing.Size(40, 21);
             this.cmb6HD.TabIndex = 27;
             this.cmb6HD.SelectionChangeCommitted += new System.EventHandler(this.cmb6HD_SelectionChangeCommitted);
+            this.cmb6HD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // label10
             // 
@@ -305,6 +311,7 @@
             this.cmb1MD.Size = new System.Drawing.Size(40, 21);
             this.cmb1MD.TabIndex = 31;
             this.cmb1MD.SelectionChangeCommitted += new System.EventHandler(this.cmb1MD_SelectionChangeCommitted);
+            this.cmb1MD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb2MD
             // 
@@ -314,6 +321,7 @@
             this.cmb2MD.Size = new System.Drawing.Size(40, 21);
             this.cmb2MD.TabIndex = 32;
             this.cmb2MD.SelectionChangeCommitted += new System.EventHandler(this.cmb2MD_SelectionChangeCommitted);
+            this.cmb2MD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb3MD
             // 
@@ -323,6 +331,7 @@
             this.cmb3MD.Size = new System.Drawing.Size(40, 21);
             this.cmb3MD.TabIndex = 33;
             this.cmb3MD.SelectionChangeCommitted += new System.EventHandler(this.cmb3MD_SelectionChangeCommitted);
+            this.cmb3MD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb4MD
             // 
@@ -332,6 +341,7 @@
             this.cmb4MD.Size = new System.Drawing.Size(40, 21);
             this.cmb4MD.TabIndex = 34;
             this.cmb4MD.SelectionChangeCommitted += new System.EventHandler(this.cmb4MD_SelectionChangeCommitted);
+            this.cmb4MD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb5MD
             // 
@@ -341,6 +351,7 @@
             this.cmb5MD.Size = new System.Drawing.Size(40, 21);
             this.cmb5MD.TabIndex = 35;
             this.cmb5MD.SelectionChangeCommitted += new System.EventHandler(this.cmb5MD_SelectionChangeCommitted);
+            this.cmb5MD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb6MD
             // 
@@ -350,6 +361,7 @@
             this.cmb6MD.Size = new System.Drawing.Size(40, 21);
             this.cmb6MD.TabIndex = 36;
             this.cmb6MD.SelectionChangeCommitted += new System.EventHandler(this.cmb6MD_SelectionChangeCommitted);
+            this.cmb6MD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmbEspecialidades
             // 
@@ -419,6 +431,7 @@
             this.cmb6MH.Name = "cmb6MH";
             this.cmb6MH.Size = new System.Drawing.Size(40, 21);
             this.cmb6MH.TabIndex = 55;
+            this.cmb6MH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb5MH
             // 
@@ -427,6 +440,7 @@
             this.cmb5MH.Name = "cmb5MH";
             this.cmb5MH.Size = new System.Drawing.Size(40, 21);
             this.cmb5MH.TabIndex = 54;
+            this.cmb5MH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb4MH
             // 
@@ -435,6 +449,7 @@
             this.cmb4MH.Name = "cmb4MH";
             this.cmb4MH.Size = new System.Drawing.Size(40, 21);
             this.cmb4MH.TabIndex = 53;
+            this.cmb4MH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb3MH
             // 
@@ -443,6 +458,7 @@
             this.cmb3MH.Name = "cmb3MH";
             this.cmb3MH.Size = new System.Drawing.Size(40, 21);
             this.cmb3MH.TabIndex = 52;
+            this.cmb3MH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb2MH
             // 
@@ -451,6 +467,7 @@
             this.cmb2MH.Name = "cmb2MH";
             this.cmb2MH.Size = new System.Drawing.Size(40, 21);
             this.cmb2MH.TabIndex = 51;
+            this.cmb2MH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb1MH
             // 
@@ -459,6 +476,7 @@
             this.cmb1MH.Name = "cmb1MH";
             this.cmb1MH.Size = new System.Drawing.Size(40, 21);
             this.cmb1MH.TabIndex = 50;
+            this.cmb1MH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb6HH
             // 
@@ -468,6 +486,7 @@
             this.cmb6HH.Size = new System.Drawing.Size(40, 21);
             this.cmb6HH.TabIndex = 49;
             this.cmb6HH.SelectionChangeCommitted += new System.EventHandler(this.cmb6HH_SelectionChangeCommitted);
+            this.cmb6HH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb5HH
             // 
@@ -477,6 +496,7 @@
             this.cmb5HH.Size = new System.Drawing.Size(40, 21);
             this.cmb5HH.TabIndex = 48;
             this.cmb5HH.SelectionChangeCommitted += new System.EventHandler(this.cmb5HH_SelectionChangeCommitted);
+            this.cmb5HH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb4HH
             // 
@@ -486,6 +506,7 @@
             this.cmb4HH.Size = new System.Drawing.Size(40, 21);
             this.cmb4HH.TabIndex = 47;
             this.cmb4HH.SelectionChangeCommitted += new System.EventHandler(this.cmb4HH_SelectionChangeCommitted);
+            this.cmb4HH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb3HH
             // 
@@ -495,6 +516,7 @@
             this.cmb3HH.Size = new System.Drawing.Size(40, 21);
             this.cmb3HH.TabIndex = 46;
             this.cmb3HH.SelectionChangeCommitted += new System.EventHandler(this.cmb3HH_SelectionChangeCommitted);
+            this.cmb3HH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb2HH
             // 
@@ -504,6 +526,7 @@
             this.cmb2HH.Size = new System.Drawing.Size(40, 21);
             this.cmb2HH.TabIndex = 45;
             this.cmb2HH.SelectionChangeCommitted += new System.EventHandler(this.cmb2HH_SelectionChangeCommitted);
+            this.cmb2HH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // cmb1HH
             // 
@@ -513,6 +536,7 @@
             this.cmb1HH.Size = new System.Drawing.Size(40, 21);
             this.cmb1HH.TabIndex = 44;
             this.cmb1HH.SelectionChangeCommitted += new System.EventHandler(this.cmb1HH_SelectionChangeCommitted);
+            this.cmb1HH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // label17
             // 
