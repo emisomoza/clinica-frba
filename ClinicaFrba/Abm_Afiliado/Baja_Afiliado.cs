@@ -20,9 +20,21 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.dgvAfiliados.DataSource = getAfiliadosPorDocumento(txtDocumento.Text.ToString());
-            this.dgvAfiliados.AllowUserToAddRows = false;
-            this.dgvAfiliados.MultiSelect = false;
+            txtIdBaja.Text = "";
+            btnBaja.Visible = false;
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
+            {
+                this.dgvAfiliados.AllowUserToAddRows = false;
+                this.dgvAfiliados.MultiSelect = false;
+                this.dgvAfiliados.CancelEdit();
+                this.dgvAfiliados.DataSource = getAfiliadosPorDocumento(txtDocumento.Text.ToString());
+                this.dgvAfiliados.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("El nro de documento ingresado no es válido.");
+            }
         }
 
         public static DataTable getAfiliadosPorDocumento(String documento)
@@ -39,7 +51,13 @@ namespace ClinicaFrba.Abm_Afiliado
                 MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
                 return null;
             }
-            return tabla;
+            else if (tabla.Rows.Count == 0) {
+                MessageBox.Show("No se encontró ningún afiliado activo con ese nro de documento.");
+                return null;
+            }
+            else {
+                return tabla;
+            }
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
@@ -59,12 +77,21 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 MessageBox.Show(tabla.Rows[0].ItemArray[0].ToString());
             }
-            txtIdBaja.Text = "";
-            btnBaja.Visible = false;
-            btnBuscar_Click(sender, e);
+            limpiar();
         }
 
-        private void dgvAfiliados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void limpiar() {
+            txtIdBaja.Text = "";
+            btnBaja.Visible = false;
+            this.dgvAfiliados.Rows.RemoveAt(this.dgvAfiliados.CurrentRow.Index);
+        }
+
+        private void txtIdBaja_TextChanged(object sender, EventArgs e)
+        {
+            btnBaja.Visible = true;
+        }
+
+        private void dgvAfiliados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id_afiliado;
             if (e.RowIndex >= 0)
@@ -76,11 +103,6 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 MessageBox.Show("Seleccione el afiliado a dar de baja.");
             }
-        }
-
-        private void txtIdBaja_TextChanged(object sender, EventArgs e)
-        {
-            btnBaja.Visible = true;
         }
     }
 }

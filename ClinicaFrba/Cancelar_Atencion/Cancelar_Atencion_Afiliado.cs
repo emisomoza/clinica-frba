@@ -50,31 +50,38 @@ namespace ClinicaFrba.Cancelar_Atencion
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
-
-            getAfiliadosPorDocumento(txtDocumento.Text.ToString());
-
-            SQL sql = new SQL();
-            List<Parametro> parametros = new List<Parametro>();
-
-            Parametro id_afiliado_param = new Parametro("id_afiliado", id_afiliado);
-            parametros.Add(id_afiliado_param);
-            Parametro fecha_desde = new Parametro("fecha_desde", Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(2).Day.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(2).Month.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(2).Year.ToString());
-            parametros.Add(fecha_desde);
-
-            DataTable tabla = sql.ejecutarSP("usp_buscar_turnos_afiliado", parametros);
-            if (tabla.Rows.Count == 0)
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
             {
-                dgvTurnos.DataSource = null;
-                MessageBox.Show("No existen turnos a cancelar.");
-            }
-            else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
-            {
-                MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                getAfiliadosPorDocumento(txtDocumento.Text.ToString());
+
+                SQL sql = new SQL();
+                List<Parametro> parametros = new List<Parametro>();
+
+                Parametro id_afiliado_param = new Parametro("id_afiliado", id_afiliado);
+                parametros.Add(id_afiliado_param);
+                Parametro fecha_desde = new Parametro("fecha_desde", Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(2).Day.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(2).Month.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(2).Year.ToString());
+                parametros.Add(fecha_desde);
+
+                DataTable tabla = sql.ejecutarSP("usp_buscar_turnos_afiliado", parametros);
+                if (tabla.Rows.Count == 0)
+                {
+                    dgvTurnos.DataSource = null;
+                    MessageBox.Show("No existen turnos a cancelar.");
+                }
+                else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                {
+                    MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                }
+                else
+                {
+                    dgvTurnos.DataSource = tabla;
+                    this.dgvTurnos.AllowUserToAddRows = false;
+                }
             }
             else
             {
-                dgvTurnos.DataSource = tabla;
-                this.dgvTurnos.AllowUserToAddRows = false;
+                MessageBox.Show("El nro de documento ingresado no es válido.");
             }
         }
 
@@ -136,6 +143,7 @@ namespace ClinicaFrba.Cancelar_Atencion
                 {
                     MessageBox.Show(tabla.Rows[0].ItemArray[0].ToString());
                 }
+                btnBuscarProfesional_Click(sender, e);
             }
         }
 

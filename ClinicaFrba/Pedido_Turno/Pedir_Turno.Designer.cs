@@ -225,7 +225,7 @@
             this.Controls.Add(this.cmbProfesional);
             this.Controls.Add(this.label1);
             this.Name = "Pedir_Turno";
-            this.Text = "Pedir_Turno";
+            this.Text = "Pedir Turno";
             this.ResumeLayout(false);
             this.PerformLayout();
 

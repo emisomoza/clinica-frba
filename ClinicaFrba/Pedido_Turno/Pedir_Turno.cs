@@ -47,35 +47,43 @@ namespace ClinicaFrba.Pedido_Turno
 
         private void btnAfiliado_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtDocumento.Text))
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
             {
-                MessageBox.Show("Debe ingresar un número de documento.");
-            }
-            else
-            {
-                SQL sql = new SQL();
-                List<Parametro> parametros = new List<Parametro>();
-
-                Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
-                parametros.Add(documento_param);
-
-                DataTable tabla = sql.ejecutarSP("usp_obtener_afiliados_x_documento", parametros);
-                if (tabla.Rows.Count == 0)
+                if (String.IsNullOrWhiteSpace(txtDocumento.Text))
                 {
-                    MessageBox.Show("No existe el afiliado con el documento ingresado");
-                }
-                else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
-                {
-                    MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                    MessageBox.Show("Debe ingresar un número de documento.");
                 }
                 else
                 {
-                    id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
-                    lblAfiliado.Visible = true;
-                    lblAfiliado.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
-                    inicializarEspecialidades();
-                    inicializarProfesionales();
+                    SQL sql = new SQL();
+                    List<Parametro> parametros = new List<Parametro>();
+
+                    Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
+                    parametros.Add(documento_param);
+
+                    DataTable tabla = sql.ejecutarSP("usp_obtener_afiliados_x_documento", parametros);
+                    if (tabla.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No existe el afiliado con el documento ingresado");
+                    }
+                    else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                    {
+                        MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                    }
+                    else
+                    {
+                        id_afiliado = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                        lblAfiliado.Visible = true;
+                        lblAfiliado.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
+                        inicializarEspecialidades();
+                        inicializarProfesionales();
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("El nro de documento ingresado no es válido.");
             }
         }
 
@@ -190,7 +198,11 @@ namespace ClinicaFrba.Pedido_Turno
             parametros.Add(id_afiliado_param);
             Parametro id_especialidad_profesional = new Parametro("id_especialidad_profesional", Convert.ToInt32(cmbProfesional.SelectedValue));
             parametros.Add(id_especialidad_profesional);
-            Parametro fecha = new Parametro("fecha", Convert.ToDateTime(cmbFechas.SelectedValue).Day.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Month.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Year.ToString());
+            Parametro fecha = new Parametro("fecha", 
+                // Convert.ToDateTime(
+                cmbFechas.SelectedValue)
+                //.Day.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Month.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Year.ToString())
+                ;
             parametros.Add(fecha);
 
             DataTable tabla = sql.ejecutarSP("usp_horarios_disponibles", parametros);
@@ -220,7 +232,11 @@ namespace ClinicaFrba.Pedido_Turno
             parametros.Add(id_afiliado_param);
             Parametro id_especialidad_profesional = new Parametro("id_especialidad_profesional", Convert.ToInt32(cmbProfesional.SelectedValue));
             parametros.Add(id_especialidad_profesional);
-            Parametro fecha = new Parametro("fecha", Convert.ToDateTime(cmbFechas.SelectedValue).Day.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Month.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Year.ToString());
+            Parametro fecha = new Parametro("fecha", 
+                // Convert.ToDateTime(
+                cmbFechas.SelectedValue)
+                //.Day.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Month.ToString() + '-' + Convert.ToDateTime(cmbFechas.SelectedValue).Year.ToString())
+                ;
             parametros.Add(fecha);
             Parametro hora = new Parametro("hora", cmbHora.SelectedValue.ToString());
             parametros.Add(hora);

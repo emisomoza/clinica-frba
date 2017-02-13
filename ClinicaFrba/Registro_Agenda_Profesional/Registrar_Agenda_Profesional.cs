@@ -23,35 +23,43 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtDocumento.Text))
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
             {
-                MessageBox.Show("Debe ingresar un número de documento.");
-            }
-            else
-            {
-                List<Parametro> parametros = new List<Parametro>();
-
-                Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
-                parametros.Add(documento_param);
-
-                DataTable tabla = sql.ejecutarSP("usp_obtener_profesional_x_documento", parametros);
-                if (tabla.Rows.Count == 0)
+                if (String.IsNullOrWhiteSpace(txtDocumento.Text))
                 {
-                    MessageBox.Show("No existe el profesional con el documento ingresado");
-                }
-                else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
-                {
-                    MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                    MessageBox.Show("Debe ingresar un número de documento.");
                 }
                 else
                 {
-                    id_profesional = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
-                    lblProfesional.Visible = true;
-                    lblProfesional.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
-                    btnRegistrarAgenda.Visible = true;
-                    inicializarCombos();
-                    inicializarEspecialidades();
+                    List<Parametro> parametros = new List<Parametro>();
+
+                    Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
+                    parametros.Add(documento_param);
+
+                    DataTable tabla = sql.ejecutarSP("usp_obtener_profesional_x_documento", parametros);
+                    if (tabla.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No existe el profesional con el documento ingresado");
+                    }
+                    else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                    {
+                        MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                    }
+                    else
+                    {
+                        id_profesional = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                        lblProfesional.Visible = true;
+                        lblProfesional.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
+                        btnRegistrarAgenda.Visible = true;
+                        inicializarCombos();
+                        inicializarEspecialidades();
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("El nro de documento ingresado no es válido.");
             }
         }
 
@@ -94,7 +102,6 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
                         Parametro fecha_hasta_param = new Parametro("fecha_hasta", dtpHasta.Value.Year.ToString() + '-' + dtpHasta.Value.Month.ToString() + '-' + dtpHasta.Value.Day.ToString());
                         parametros.Add(fecha_hasta_param);
 
-                        bool estado_error = false;
                         String inform = "Información sobre la carga de la agenda: \n";
 
                         if (!cmb1HD.SelectedItem.Equals('-')) {
@@ -594,7 +601,7 @@ namespace ClinicaFrba.Registro_Agenda_Profesional
 
         private void cmb2HH_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            inicalizarCombosDeMinutosHasta(this.cmb2HH.SelectedItem, this.cmb2HD, this.cmb2MH, "20");
+            inicalizarCombosDeMinutosHasta(this.cmb2HD.SelectedItem, this.cmb2HH.SelectedItem, this.cmb2MH, "20");
         }
 
         private void cmb3HD_SelectionChangeCommitted(object sender, EventArgs e)

@@ -51,8 +51,10 @@ namespace ClinicaFrba.Abm_Afiliado
                     btnCambiar.Visible = true;
                     this.id_afiliado = Convert.ToInt32(this.dgvPlanesAfiliado.Rows[0].Cells[0].Value.ToString());
                 }
-            } else {
-                MessageBox.Show("El campo 'Nro de documento' debe ser numérico");  
+            }
+            else
+            {
+                MessageBox.Show("El nro de documento ingresado no es válido.");
             }
         }
 

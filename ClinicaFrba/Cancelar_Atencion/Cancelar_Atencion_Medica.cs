@@ -42,45 +42,52 @@ namespace ClinicaFrba.Cancelar_Atencion
             {
                 txtDocumento.Text = tabla.Rows[0].ItemArray[1].ToString();
                 txtDocumento.Enabled = false;
-                lblProfesional.Text = tabla.Rows[0].ItemArray[4].ToString() + ", " + tabla.Rows[0].ItemArray[3].ToString();
+                lblProfesional.Text = tabla.Rows[0].ItemArray[3].ToString() + ", " + tabla.Rows[0].ItemArray[2].ToString();
                 lblProfesional.Visible = true;
                 id_profesional = Convert.ToInt32(tabla.Rows[0].ItemArray[0].ToString());
+                inicializarParametros();
             }
         }
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtDocumento.Text))
+            int parsedValue;
+            if (int.TryParse(txtDocumento.Text, out parsedValue))
             {
-                MessageBox.Show("Debe ingresar un número de documento.");
-            }
-            else
-            {
-                SQL sql = new SQL();
-                List<Parametro> parametros = new List<Parametro>();
-
-                Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
-                parametros.Add(documento_param);
-
-                DataTable tabla = sql.ejecutarSP("usp_obtener_profesional_x_documento", parametros);
-                if (tabla.Rows.Count == 0)
+                if (String.IsNullOrWhiteSpace(txtDocumento.Text))
                 {
-                    MessageBox.Show("No existe el profesional con el documento ingresado");
-                }
-                else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
-                {
-                    MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                    MessageBox.Show("Debe ingresar un número de documento.");
                 }
                 else
                 {
-                    id_profesional = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
-                    lblProfesional.Visible = true;
-                    lblProfesional.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
-                    dtpDesde.MinDate = Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1);
-                    dtpHasta.MinDate = Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1);
-                    dtpDesde.Value = dtpDesde.MinDate;
-                    dtpHasta.Value = dtpHasta.MinDate;
+                    SQL sql = new SQL();
+                    List<Parametro> parametros = new List<Parametro>();
+
+                    Parametro documento_param = new Parametro("nro_documento", Convert.ToInt32(txtDocumento.Text));
+                    parametros.Add(documento_param);
+
+                    DataTable tabla = sql.ejecutarSP("usp_obtener_profesional_x_documento", parametros);
+                    if (tabla.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No existe el profesional con el documento ingresado");
+                    }
+                    else if (tabla.Rows.Count > 0 && tabla.Rows[0].ItemArray[0].ToString() == "ERROR")
+                    {
+                        MessageBox.Show(tabla.Rows[0].ItemArray[1].ToString());
+                    }
+                    else
+                    {
+                        id_profesional = Convert.ToInt32(tabla.Rows[0].ItemArray[0]);
+                        lblProfesional.Visible = true;
+                        lblProfesional.Text = tabla.Rows[0].ItemArray[2].ToString() + ", " + tabla.Rows[0].ItemArray[1].ToString();
+                        inicializarParametros();
+                    }
                 }
+            }
+            else {
+                MessageBox.Show("El nro de documento ingresado no es válido.");
+                id_profesional = 0;
+                lblProfesional.Text = "";
             }
         }
 
@@ -106,7 +113,7 @@ namespace ClinicaFrba.Cancelar_Atencion
                 parametros.Add(fecha_desde);
                 Parametro fecha_hasta = new Parametro("fecha_hasta", dtpHasta.Value);
                 parametros.Add(fecha_hasta);
-                Parametro fecha_actual = new Parametro("fecha_actual", Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1).Day.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1).Month.ToString() + "-" + Settings.Default.Fecha_Sistema.ToLocalTime().AddDays(1).Year.ToString());
+                Parametro fecha_actual = new Parametro("fecha_actual", DateTime.Parse(Settings.Default.Fecha_Sistema.ToString()).ToString("yyyy-MM-dd"));
                 parametros.Add(fecha_actual);
                 Parametro motivo = new Parametro("motivo", txtMotivo.Text.ToString());
                 parametros.Add(motivo);
@@ -119,8 +126,16 @@ namespace ClinicaFrba.Cancelar_Atencion
                 else
                 {
                     MessageBox.Show(tabla.Rows[0].ItemArray[0].ToString());
+                    inicializarParametros();
                 }
             }
+        }
+
+        private void inicializarParametros()
+        {
+            dtpDesde.Value = dtpDesde.MinDate;
+            dtpHasta.Value = dtpHasta.MinDate;
+            txtMotivo.Text = "";
         }
 
     }

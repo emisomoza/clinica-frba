@@ -52,21 +52,33 @@ namespace ClinicaFrba.Registro_Llegada
             String query = "SELECT * FROM [" + Settings.Default.SQL_Schema + "].fn_traer_turnos (" +
                             int.Parse(especialidades.SelectedValue.ToString()) + ", " +
                             int.Parse(profesionales.SelectedValue.ToString()) + ", '" +
-                            Settings.Default.Fecha_Sistema.ToShortDateString() + "');";
+                            DateTime.Parse(Settings.Default.Fecha_Sistema.ToString()).ToString("yyyy-MM-dd")+ "');";
             DataTable tabla = sql.ejecutarConsulta(query);
             dataGridView1.ReadOnly = true;
-            dataGridView1.DataSource = tabla;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AllowUserToResizeColumns = true;
+            if (tabla.Rows.Count == 0)
+            {
+                if (profesionales.SelectedValue.ToString() == "0")
+                {
+                    MessageBox.Show("Debe seleccionar un profesional.");
+                } else {
+                    MessageBox.Show("No se encontraron turnos para el profesional y la especialidad seleccionados.");
+                }
+            }
+            else
+            {
+                dataGridView1.DataSource = tabla;
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Confirmar_Llegada cnf_llegada = new Confirmar_Llegada(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
             cnf_llegada.ShowDialog();
-            this.Close();
+            profesionales_SelectionChangeCommitted(sender, e);
         }
     }
 }

@@ -44,9 +44,11 @@
             this.dgvAfiliados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAfiliados.Location = new System.Drawing.Point(-1, 96);
             this.dgvAfiliados.Name = "dgvAfiliados";
+            this.dgvAfiliados.ReadOnly = true;
+            this.dgvAfiliados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAfiliados.Size = new System.Drawing.Size(785, 129);
             this.dgvAfiliados.TabIndex = 0;
-            this.dgvAfiliados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAfiliados_CellContentClick);
+            this.dgvAfiliados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAfiliados_CellClick);
             // 
             // label1
             // 
@@ -96,19 +98,19 @@
             // 
             // txtIdBaja
             // 
+            this.txtIdBaja.Enabled = false;
             this.txtIdBaja.Location = new System.Drawing.Point(649, 49);
             this.txtIdBaja.Name = "txtIdBaja";
             this.txtIdBaja.Size = new System.Drawing.Size(100, 20);
             this.txtIdBaja.TabIndex = 6;
             this.txtIdBaja.TextChanged += new System.EventHandler(this.txtIdBaja_TextChanged);
-            this.txtIdBaja.Enabled = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 13);
+            this.label3.Size = new System.Drawing.Size(145, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Elegir el afiliado a dar de baja";
             // 
